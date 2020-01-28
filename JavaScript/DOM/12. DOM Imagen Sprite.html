@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>12. DOM - Imagen Sprite</title>
+		<meta charset="UTF-8">
+		
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px; }
+				
+			img.anchura100 {
+				width: 100%; }
+			
+			div.imagen {
+				width: 20%; }
+				
+			div.caja {
+				border: 1px solid blue;
+				text-align: center;
+				box-sizing: border-box;
+				width: 20%; }
+			
+			.cajasprite {
+				width: 97px;
+				height: 174px; }
+ 			
+			.sprite1 {
+				background: url( "imagenes/sprite.jpg" ) 0px 0px; }
+			
+			.sprite2 {
+				background: url( "imagenes/sprite.jpg" ) -97px 0px; }
+			
+			.sprite3 {
+				background: url( "imagenes/sprite.jpg" ) -194px 0px; }
+		</style>
+		<script>
+			function cambia() {
+				var nodosImagen;
+				nodosImagen = document.getElementsByClassName( "cajasprite" );
+				
+				nodosImagen[ 0 ].classList.remove( actualSprite );
+				
+				if ( actualSprite == "sprite1" ) {
+					actualSprite = "sprite2";
+				} else if ( actualSprite == "sprite2" ) {
+					actualSprite = "sprite3";
+				} else if ( actualSprite == "sprite3" ) {
+					actualSprite = "sprite1";
+				}
+				
+				
+				nodosImagen[ 0 ].classList.add( actualSprite );
+				
+				
+			}
+			
+			window.onload = function() {
+				var nodos;
+
+				nodos = document.getElementsByClassName( "caja" );
+				
+				nodos[ 0 ].onclick = cambia;
+				
+				actualSprite = "sprite1";
+			}			
+			
+		</script>
+	</head>
+	<body>
+		<div class="cajasprite sprite1"></div>
+		<div class="caja">Cambiar</div>
+	</body>
+	
+</html>
+
+
+
+
+
+
+

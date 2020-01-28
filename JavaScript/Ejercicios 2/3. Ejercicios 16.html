@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 16.</title>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		
+		<script>
+			// 16.
+			// Cree una function en la cual se generan números aleatorios del 1 al 100 pero 
+			// solo se guardaran en el array si el número generado es superior al anterior.
+			// Cuando no se puedan generar más números la función retornará en un array los números generados.
+
+			
+			
+			function genNumSuperiores() {
+				var arNumeros = [];
+				var numAleat = -1;
+				var bPrimeraVez;
+				
+				bPrimeraVez = false;
+				while ( numAleat != 100 )  {
+					numAleat = genAleatorio( 1, 100 );
+					if ( !bPrimeraVez ) {
+						bPrimeraVez = true;
+						arNumeros[ arNumeros.length ] = numAleat;
+					} else {													
+						if ( arNumeros[ arNumeros.length - 1 ] < numAleat ) {
+							arNumeros[ arNumeros.length ] = numAleat;
+						}
+					}
+				}
+				
+				return arNumeros;
+			}
+			
+			function init() {
+				var arNumerosSup = [];
+				arNumerosSup = genNumSuperiores();
+				document.write( "Los números generados son: " + arNumerosSup );
+			}
+			
+			init();		
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

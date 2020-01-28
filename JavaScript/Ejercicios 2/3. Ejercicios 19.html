@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 19.</title>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		<script>
+			// 19. Cree una función en la cual se generen números aleatorios entre 1 y 100
+			// Los números tienen que ser alternativamente par y luego impar.
+			// Genere un total de 10 números en total.
+			
+			function genEvenOdd( iNumeros ) {
+				var arTmp = []; // Para almacenar los números pares e impares.
+				var numAleat;
+				var i;
+				
+				i = 0;
+				while ( i < iNumeros ) {
+					numAleat = genAleatorio( 1, 100 );
+					if ( numAleat % 2 == 0 && i % 2 == 0 ) {
+						arTmp[ arTmp.length ] = numAleat;
+						i++;
+					} else if ( numAleat % 2 == 1 && i % 2 == 1 ) {
+						arTmp[ arTmp.length ] = numAleat;
+						i++;
+					}					
+				}
+				
+				return arTmp;
+			}
+			
+			function genEvenOdd_withBoolean( iNumeros ) {
+				var arTmp = []; // Para almacenar los números pares e impares.
+				var numAleat;
+				var bPar = true;
+				
+				while ( arTmp.length < iNumeros ) {
+					numAleat = genAleatorio( 1, 100 );
+					if ( numAleat % 2 == 0 && bPar ) {
+						arTmp[ arTmp.length ] = numAleat;
+						bPar = false;
+					} else if ( numAleat % 2 == 1 && !bPar ) {
+						arTmp[ arTmp.length ] = numAleat;
+						bPar = true;
+					}					
+				}
+				
+				return arTmp;
+			}
+			
+			function init() {
+				var arNumeros = [];
+				arNumeros = genEvenOdd( 10 ) ;
+				document.write( "Los números generados par e impar son:<br/>" + arNumeros + "<br/>" );
+
+				arNumeros = genEvenOdd_withBoolean( 10 ) ;
+				document.write( "Los números generados par e impar son:<br/>" + arNumeros + "<br/>" );				
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>21. Métodos numéricos</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>
+			num1 = 0;
+			num2 = 0;
+			document.write( num1 / num2 ); // se muestra NaN
+			
+			document.write( "<br/>" );
+			num1 = 5;
+			num2 = 0;
+			document.write( num1 / num2 ); // se muestra Infinity
+			
+			document.write( "<br/>" );
+			num1 = 5;
+			num2 = "pepe";
+			document.write( num1 / num2 ); // se muestra NaN
+			
+			document.write( "<br/>" );
+			num1 = 5;
+			num2 = "pepe"; 
+			
+			res = num1 / num2; // res = NaN
+			
+			if ( isNaN( res ) ) { // isNaN -- Devuelve true o false.
+				document.write( "Por el if" );
+			} else {
+				document.write( "Por el else" );
+			}
+			
+			document.write( "<br/>" );
+			do {
+				numUsu = prompt( "Introduce un número" );
+			} while ( isNaN( numUsu ) || numUsu.trim() == "" )
+			document.write( "numUsu = " + numUsu );
+			
+			document.write( "numUsu + 2 = " + ( parseFloat( numUsu ) + 2 ) );
+			document.write( "<br/>" );
+			
+			// toFixed
+			var num1 = 4.516;
+			document.write( num1 ); 
+			document.write( "<br/>" );
+			document.write( "num1.toFixed( 2 )=" + num1.toFixed( 2 ) ); 
+			document.write( "<br/>" );
+			document.write( "num1.toFixed( 1 )=" + num1.toFixed( 1 ) ); 
+			document.write( "<br/>" );
+			document.write( "num1.toFixed()=" + num1.toFixed() );
+			document.write( "<br/>" );
+			document.write( "parseInt( num1 )=" + parseInt( num1 ) );
+			
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>10. DOM - Eventos</title>
+		<meta charset="UTF-8">
+		
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px; }
+				
+			div.caja {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 30px;
+				width: 100px;
+				height: 100px;
+				background-color: gray;
+				border-radius: 50%; }
+				
+			div.rojo {
+				border: 1px solid red;
+				color: blue; }
+				
+			div.verde {
+				border: 1px solid green; }
+				
+			div.azul {
+				background-color: blue;
+				color: red; }				
+		</style>
+		<script>
+			function mostrarMensaje() {
+				alert( "Hola, que quieres?" );
+			}
+			
+			window.onload = function() {
+				var nodos = document.getElementsByClassName( "caja" );
+				
+				// Definición semantica.
+				nodos[ 0 ].onclick = mostrarMensaje;				
+			}			
+			
+		</script>
+	</head>
+	<body>
+		
+		<div class="caja rojo">asdsada1</div>
+		
+		
+
+
+	</body>
+	
+</html>
+
+
+
+
+
+
+

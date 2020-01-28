@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>4. Ejercicios 15.</title>
+		
+		<script>
+			// 15.
+			// Escriba el nombre más corto. ( número de caracteres ).
+			
+			function srhElementsShort( arTmp ) {
+				var i;
+				var arRetorno = [];
+				var longMasCorta = arTmp[ 0 ].length;
+				var nombreMasCorto = arTmp[ 0 ];
+				
+				for ( i = 1; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ].length < longMasCorta ) {
+						nombreMasCorto = arTmp[ i ];
+						longMasCorta = arTmp[ i ].length;
+					}
+				}
+				
+				return nombreMasCorto;
+			}			
+			
+			function init() {
+				var arNombres = [ "LUIS", "EVA1", "ANA", "ANA MARÍA", "JUANA", "JOSÉ", "JOSÉ MARÍA", "LUISaq", "OLGA", "RUTH", "EVA", "JUAN", "LUIS", "PEPE", "MARÍA", "MARIO", "ROBERTO", "ALBERTO", "EVA MARÍA", "OLGA", "ELENA", "MARÍA ELENA TERESA", "LUIS", "LUIS", "OLGA", "MARÍA" ];
+				
+				
+				document.write( "El nombre más corto es " + srhElementsShort( arNombres ) );
+				
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

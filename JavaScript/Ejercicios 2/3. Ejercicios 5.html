@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 5.</title>
+		
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		
+		<script>
+			// 5.
+			// Cree una function en la cual obtenga los elementos que sean superiores a la media de los elementos del array.
+			// La function recibe el array (este debe ser numérico).
+			// Y retorna los elementos que cumplan el criterio.
+
+			function getElementsByMediaSup( arTmp ) {
+				var media;
+				var i;
+				var arElements = [];
+				
+				media = getMediaArray( arTmp );
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ] > media ) {
+						arElements[ arElements.length ] = arTmp[ i ];
+					}					
+				}
+				
+				return arElements;
+			}
+			
+			function init() {
+				var arNumbers = [ 4, 6, 12, 24 ];
+				
+				document.write ( "Los elementos superiores a la media son: " +  getElementsByMediaSup( arNumbers ) );
+			}
+			
+			init();					
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

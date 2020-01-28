@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>17. Arrays multidimensionales</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>
+			miArray = new Array(); 
+			for ( i = 0; i < 3; i++ ) { 
+				miArray[ i ] = new Array(); 
+			}
+
+			miArray[ 0 ][ 0 ] = 1;
+			miArray[ 0 ][ 1 ] = 2;
+			miArray[ 0 ][ 2 ] = 3;
+			miArray[ 0 ][ 3 ] = 4;
+			
+			miArray[ 1 ][ 0 ] = 5;
+			miArray[ 1 ][ 1 ] = 6;
+			miArray[ 1 ][ 2 ] = 7;
+			miArray[ 1 ][ 3 ] = 8;
+			miArray[ 2 ][ 0 ] = 9;
+			miArray[ 2 ][ 1 ] = 10;
+			miArray[ 2 ][ 2 ] = 11;
+			miArray[ 2 ][ 3 ] = 12;
+			miArray[ 2 ][ 4 ] = 13; // esta definición si la podemos hacer porque la segunda dimensión no la limitamos.
+			miArray[ 3 ] = 14; // Esta definición funciona
+			//miArray[ 3 ][ 0 ] = 15; //Esta definición daría un error.
+			
+			for ( i = 0; i < miArray.length; i++ ) { 
+				for ( j = 0; j < miArray[ i ].length; j++ ) { 
+					document.write( "Posición " + i + "," + j + " del array: " + miArray[ i ][ j ] ); 
+					document.write( "<br>" );
+				}
+			} 
+			document.write( "Posición " + 3 + " del array: " + miArray[ 3 ] ); 
+
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 3.</title>
+		
+		<script>
+			// 3.
+			// Cree una function en la cual obtenga los elementos que contengan una letra o cadena.
+			// La function recibe el array y la cadena o letra
+			// Y retorna los elementos que cumplan el criterio.
+			
+			
+			function getElementsByString( arTmp, string ) {
+				var arElements = new Array();
+				var i;
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ].indexOf( string ) != - 1 ) {
+						//arElements.push( arTmp[ i ] ); Dicen que es más lento que la sig. línea.
+						arElements[ arElements.length ]= arTmp[ i ];
+					}
+				}
+				return arElements;
+			}
+			
+			function init() {
+				var arPaises = [ "España", "Francia", "Portugal", "Italia", "Grecia", "Alemania", "Reino Unido", "Estados Unidos de America", "Canadá", "Federación Rusa", "Suiza", "Suecia", "Noruega", "Finlandia", "Belgica", "Holanda", "La Republica Dominicana", "Nueva Zelanda", "Republica de Bolivia", "Republica de Colombia", "Chile", "Republica del congo" ];
+				var arElements;
+				
+				arElements = getElementsByString( arPaises, " " );
+				document.write( arElements );
+			}
+			
+			init();
+			
+			
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>7. DOM</title>
+		<meta charset="UTF-8">
+		
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px; }
+			
+			div.zonap {
+				float: none; }
+				
+			nav {
+				display: table; }
+				
+			nav div, div.zonap div {
+				border: 1px solid blue;
+				width: 100px;
+				height: 50px;
+				padding: 10px;
+				float: left;
+				text-align: center; }
+				
+				
+			div.rojo {
+				border: 1px solid red; }
+				
+		</style>
+		<script>
+			
+			window.onload = function() {
+				var nodos;
+				var nodosRojo;
+				
+				nodos = document.getElementsByClassName( "zonap" );
+				nodosRojo = nodos[ 0 ].getElementsByClassName( "rojo" );
+				nodosRojo[ 0 ].innerHTML = "Cambiamos el elemento de la zonap";
+				
+				console.log( "Longitud de nodos: " + nodos.length );
+				
+				// No funciona la siguiente línea ya que getElementById no permite buscar a partir de otro nodo, siempre tiene que ser a partir de document.
+				nodoEspecial = nodos[ 0 ].getElementById( "especial" );
+				nodoEspecial.innerHTML = "escribiendo en el nodo especial";
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+	
+		<nav class="menu">
+			<div></div>
+			<div class="rojo">Menu rojo</div>
+			<div id="especial"></div>
+			<div></div>
+		</nav>
+		
+		<div class="zonap">
+			<div id="especial"></div>
+			<div></div>
+			<div class="rojo">zonap rojo</div>
+			<div></div>
+		</div>		
+	</body>
+	
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>7. for RESUELTO</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>
+			
+			
+			// 1. Mostrar números del 1 al 10.
+			document.write ( "<b>1. Mostrar números del 1 al 10.</b><br/>" );
+			for ( i = 1; i < 11; i++ ) {
+				document.write( i );
+			}
+			document.write( "<br/>" );
+			
+			// 2. Mostrar números del 10 al 1.
+			document.write ( "<b>2. Mostrar números del 10 al 1.</b><br/>" );
+			for ( i = 10; i > 0; i-- ) {
+				document.write( i );
+			}
+			document.write( "<br/>" );
+			// 3. Mostrar los números pares del 1 al 10.
+			document.write ( "<b>3. Mostrar los números pares del 1 al 10.</b><br/>" );
+			for ( i = 1; i < 11; i++ ) {
+				if ( i % 2 == 0 ) {
+					document.write( i );
+				}
+			}
+			document.write( "<br/>" );
+			for ( i = 2; i < 11; i+=2 ) {
+				document.write( i );
+			}
+					
+			document.write( "<br/>" );		
+			// 4. Mostrar los números impares del 1 al 10.
+			document.write( "<b>4. Mostrar los números impares del 1 al 10.</b><br/>" );
+			for ( i = 1; i < 11; i++ ) {
+				if ( i % 2 == 1 ) {
+					document.write( i );
+				}
+			}
+			document.write( "<br/>" );
+			for ( i = 1; i < 11; i+=2 ) {
+				document.write( i );
+			}
+			document.write( "<br/>" );
+			
+			// 5. Mostrar números del 1 al 10 pero no el 5.
+			document.write( "<b>5. Mostrar números del 1 al 10 pero no el 5.</b><br/>" );
+			for ( i = 1; i < 11; i++ ) {
+				if ( i != 5 ) {
+					document.write( i );
+				}
+			}
+			document.write( "<br/>" );
+			// 6. Mostrar números del 1 al 10 pero no el 5 ni el 7.
+			document.write( "<b>6. Mostrar números del 1 al 10 pero no el 5 ni el 7.</b><br/>" );
+			for ( i = 1; i < 11; i++ ) {
+				if ( i != 5 && i != 7 ) {
+					document.write( i );
+				}
+			}
+			document.write( "<br/>" );
+			// 7. Mostrar números del 1 al 10 pero no del 3 al 8.
+			document.write( "<b>7. Mostrar números del 1 al 10 pero no del 3 al 8.</b><br/>" );
+			for ( i = 1; i < 11; i++ ) {
+				if ( i < 3 || i > 8 ) {
+					document.write( i );
+				}
+			}
+			document.write( "<br/>" );
+			// 8. Mostrar los números 1 al 100 sólo los múltiplos de 5.
+			document.write( "<b>8. Mostrar los números 1 al 100 sólo los múltiplos de 5.</b><br/>" );
+			for ( i = 1; i < 101; i++ ) {
+				if ( i % 5 == 0 ) {
+					document.write( i + " - " );
+				}
+			}
+			document.write( "<br/>" );
+			// 9. Sumar los 100 primeros números. Mostrar sólo la suma.
+			document.write( "<b>9. Sumar los 100 primeros números. Mostrar sólo la suma.</b><br/>" );
+			
+			suma = 0;
+			for ( i = 1; i < 101; i++ ) {
+				suma+= i;
+			}
+			
+			document.write( "SUMA = " + suma );
+			document.write( "<br/>" );
+			
+			// 10. Con un solo bucle sumar de los primeros 100 números los números pares y los números impares. Mostrar la suma de ambos.
+			document.write( "<b>10. Con un solo bucle sumar de los primeros 100 números los números pares y los números impares. Mostrar la suma de ambos.</b><br/>" );
+			sumaPares = 0;
+			sumaImpares = 0;
+			for ( i = 1; i < 101; i++ ) {
+				if ( i % 2 == 1 ) {
+					sumaImpares+= i;
+				} else {
+					sumaPares+= i;
+				}
+			}
+			
+			document.write( "sumaImpares = " + sumaImpares );
+			document.write( "<br/>" );
+			document.write( "sumaPares = " + sumaPares );
+			document.write( "<br/>" );
+			// 11. Ir sumando los 10000 primeros números y que deje de sumar cuando supere el valor  40000. Mostrar en que número ha dejado de sumar y que muestre el valor de la suma.
+			document.write( "<b>11. Ir sumando los 10000 primeros números y que deje de sumar cuando supere el valor  40000. Mostrar en que número ha dejado de sumar y que muestre el valor de la suma.</b><br/>" );
+			suma = 0;
+			for ( i = 1; i < 10001 && suma <= 40000; i++ ) {
+				suma+= i;
+			}
+			document.write( "Se ha quedado en: " + ( i - 1 ) );
+			document.write( " y la suma es : " + suma );
+			
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

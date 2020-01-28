@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>4. Ejercicios 14.</title>
+		
+		<script>
+			// 14.
+			// Escriba los nombres que solo tengan 5 caracteres.
+			
+			function isInArray( arTmp, busqueda ) {
+				var bEsta = false;
+				var i;
+				
+				for ( i = 0; i < arTmp.length && !bEsta; i++ ) {
+					if ( arTmp[ i ] == busqueda ) {
+						bEsta = true;
+					}
+				}
+				return bEsta;
+			}
+			
+			function srhElementsByLength( arTmp, longitud ) {
+				var i;
+				var arRetorno = [];
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ].length == longitud ) {
+						if ( !isInArray( arRetorno, arTmp[ i ] ) ) {
+							arRetorno[ arRetorno.length ] = arTmp[ i ];
+						}
+					}
+				}
+				
+				return arRetorno;
+			}			
+			
+			function init() {
+				var arNombres = [ "LUIS", "EVA1", "ANA", "ANA MARÍA", "JUANA", "JOSÉ", "JOSÉ MARÍA", "LUISaq", "OLGA", "RUTH", "EVA", "JUAN", "LUIS", "PEPE", "MARÍA", "MARIO", "ROBERTO", "ALBERTO", "EVA MARÍA", "OLGA", "ELENA", "MARÍA ELENA TERESA", "LUIS", "LUIS", "OLGA", "MARÍA" ];
+				var longitud = 5;
+				var arNombresByLongitud = [];
+				
+				arNombresByLongitud = srhElementsByLength( arNombres, longitud );
+				
+				if ( arNombresByLongitud.length != 0 ) {
+					document.write( "Los nombres con longitud '" + longitud + "' son: " + arNombresByLongitud );
+				} else {
+					document.write( "No hay ningún nombre repetido." );
+				}
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

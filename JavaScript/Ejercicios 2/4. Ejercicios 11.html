@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>4. Ejercicios 11.</title>
+		
+		<script>
+			// 11.
+			// Pida al usuario nombres nuevos a través del prompt.
+			// Pero que solo se inserten si no existen los nombres si los han escrito en minúsculas
+			// y existen tampoco deberían de insertarse.
+			
+			function isInArray( arTmp, busqueda ) {
+				var bEsta = false;
+				var i;
+				
+				for ( i = 0; i < arTmp.length && !bEsta; i++ ) {
+					if ( arTmp[ i ] == busqueda ) {
+						bEsta = true;
+					}
+				}
+				return bEsta;
+			}
+			
+			function setNewNames() {
+				var newName = "";
+				var arNombres = [];
+				do {
+				
+					newName = prompt( "Introduce un nuevo nombre en mayúsculas y no repitas" );
+					if ( newName.toUpperCase() == newName ) {
+						bEsta = isInArray( arNombres, newName );
+						if ( !bEsta ) {
+							arNombres[ arNombres.length ] = newName;
+							bEsta = true;
+						} else {
+							bEsta = false;
+						}
+					} else {
+						bEsta = false;
+					}					
+				} while ( bEsta );
+				
+				return arNombres;
+				
+			}			
+			
+			function init() {
+				var arNombres = [];
+				
+				arNombres = setNewNames() ;
+				
+				if ( arNombres.length != 0 ) {
+					document.write( "Los nombres insertados son: " + arNombres );
+				} else {
+					document.write( "No hay ningún nombre repetido." );
+				}
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

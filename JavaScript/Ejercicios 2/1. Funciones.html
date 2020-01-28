@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>1. Función.</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>
+			function saltoLinea() {
+				document.write( "<br/>" );
+			}
+			
+			function genAleatorio( numMinimo, numMaximo ) {
+				var numAleat = Math.floor( Math.random() * ( numMaximo - numMinimo + 1 ) + numMinimo );
+				
+				return numAleat;
+			}
+			
+			function init() {
+				var numMin = 1;
+				var numMax = 10;
+				numero = genAleatorio( numMin, numMax );
+				
+				document.write( numero );
+				saltoLinea();
+				//document.write( numAleat );
+				saltoLinea();
+				document.write( "numMin= " + numMin );
+			}
+			
+			init();
+		</script>
+	</head>
+	<body>
+		
+
+	</body>
+</html>

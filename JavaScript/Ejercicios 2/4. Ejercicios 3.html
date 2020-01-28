@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>4. Ejercicios 3.</title>
+		<script>
+			// 3. 
+			// Escriba el array por pantalla pero solo los nombres simples, separados por guion.
+			
+			function writeArraySoloNoCompuesto( arTmp ) {
+				var i;
+				var bPrimeraVez = false;
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ].indexOf( " " ) == -1 ) {
+						if ( !bPrimeraVez ) {
+							bPrimeraVez = true;
+						} else {							
+							document.write( " - " );
+						}
+						document.write( arTmp[ i ] );
+					}					
+				}
+				
+				return true;
+			}
+			
+			function init() {
+				var arNombres = [ "LUIS ALBERTO", "EVA", "ANA", "ANA MARÍA", "JUAN", "JOSÉ", "JOSÉ MARÍA", "LUIS", "OLGA", "RUTH", "EVA", "JUAN", "LUIS", "PEPE", "MARÍA", "MARIO", "ROBERTO", "ALBERTO", "EVA MARÍA", "OLGA", "ELENA", "MARÍA ELENA" ];
+				
+				writeArraySoloNoCompuesto( arNombres );
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

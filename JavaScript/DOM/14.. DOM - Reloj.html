@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>14. DOM - Reloj</title>
+		<meta charset="UTF-8">
+		<style>
+			div.reloj {
+				border: 1px solid blue;
+				padding: 10px; }
+				
+			
+		</style>
+		<script>
+			
+			function reloj() {
+				var nodos;
+				nodos = document.getElementsByClassName( "reloj" );
+				
+				var final = "AM";
+				var momentoActual = new Date();
+				var hora = momentoActual.getHours() ;
+				var minutos = momentoActual.getMinutes() ;
+				var segundos = momentoActual.getSeconds();
+				
+				if ( hora > 12 ) {
+					hora-= 12;
+					hora = "0" + hora;
+					final = "PM";
+				}
+				
+				if ( minutos < 10 ) {
+					minutos = "0" + minutos;
+				}
+				
+				if ( segundos < 10 ) {
+					segundos = "0" + segundos;
+				}
+				
+				nodos[ 0 ].innerHTML = hora + ":" + minutos + ":" + segundos + " " + final;
+			}
+			
+			window.onload = function() {
+				reloj();
+				idreloj = setInterval( "reloj()", 1000 );
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+	
+		<div class="reloj"></div>
+		
+	</body>
+	
+</html>

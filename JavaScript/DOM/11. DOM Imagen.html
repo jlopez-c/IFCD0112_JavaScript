@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>11. DOM - Imagen</title>
+		<meta charset="UTF-8">
+		
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px; }
+				
+			img.anchura100 {
+				width: 100%; }
+			
+			div.imagen {
+				width: 20%; }
+				
+			div.caja {
+				border: 1px solid blue;
+				text-align: center;
+				box-sizing: border-box;
+				width: 20%; }
+		</style>
+		<script>
+			function cambia() {
+				var nodosImagen;
+				nodosImagen = document.getElementsByTagName( "img" );
+				
+				nodosImagen[ 0 ].src = "imagenes/paisaje2.jpg";
+				alert( nodosImagen[ 0 ].src );
+			}
+			
+			window.onload = function() {
+				var nodos;
+
+				nodos = document.getElementsByClassName( "caja" );
+				
+				nodos[ 0 ].onclick = cambia;
+			}			
+			
+		</script>
+	</head>
+	<body>
+		<div class="imagen">
+			<img src="imagenes/paisaje.jpg" class="anchura100" />
+		</div>
+		<div class="caja">Cambiar</div>
+	</body>
+	
+</html>
+
+
+
+
+
+
+

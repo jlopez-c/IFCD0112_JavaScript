@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>18. Ejercicios Arrays multidimensionales</title>
+		<meta charset="UTF-8">
+		<style>
+			table {
+				width: 50%;
+				margin: auto;
+				border-collapse: collapse; }
+				
+			table th {
+				background-color: black;
+				color: white; }
+				
+			table tbody tr:nth-child(even) {
+				background-color: gray;	}
+				
+			table tbody tr:nth-child(odd) {
+				background-color: lightgray; }
+
+			table tbody tr td {
+				border: 1px solid green; }			
+		</style>
+		<script>
+			// Crear un array con 5 nombres.
+			// Crear un array con 6 apellidos.
+			// Crear un array con 4 ciudades.
+			
+			// Aleatoriamente elegimos los nombres, los apellidos y las ciudades.
+			
+			// Y los metemos en un array de dos dimensiones. 10 personas.
+			// Y añadimos una fecha de nacimiento aleatoria entre el año 1990 y 2000.
+			
+			// Antes probar sin table.
+			// Despues de crear el array creamos un table en html y realizamos un d.w.
+			
+			arNombres = [ "Ana", "Eva", "Luis", "Juan", "Pepe" ];
+			arApellidos = [ "García", "Lopez", "Herrera", "González", "Gómez", "Pérez" ];
+			arCiudades = [ "Madrid", "Sevilla", "Valencia", "Bilbao" ];
+			
+			arPersonas = new Array();
+			
+			for ( i = 0; i < 10; i++ ) { 
+				arPersonas[ i ] = new Array(); // En la posición i creo un array.
+				
+				// Asigno el nombre.
+				numMin = 0;
+				numMax = arNombres.length - 1;
+				numAleat = Math.floor( Math.random() * ( numMax - numMin + 1 ) + numMin );
+				arPersonas[ i ][ 0 ] = arNombres[ numAleat ];
+				
+				// Asigno el Apellidos.
+				numMin = 0;
+				numMax = arApellidos.length - 1;
+				numAleat = Math.floor( Math.random() * ( numMax - numMin + 1 ) + numMin );
+				arPersonas[ i ][ 1 ] = arApellidos[ numAleat ];
+				
+				// Asigno la ciudad.
+				numMin = 0;
+				numMax = arCiudades.length - 1;
+				numAleat = Math.floor( Math.random() * ( numMax - numMin + 1 ) + numMin );
+				arPersonas[ i ][ 2 ] = arCiudades[ numAleat ];
+				
+				// Genero la Fecha de nacimiento.
+				// Año
+				numMin = 1990;
+				numMax = 2000;
+				anio = Math.floor( Math.random() * ( numMax - numMin + 1 ) + numMin );
+				
+				// Mes.
+				numMin = 1;
+				numMax = 12;
+				mes = Math.floor( Math.random() * ( numMax - numMin + 1 ) + numMin );
+				
+				switch ( mes ) {
+					case 1:
+					case 3:
+					case 5:
+					case 7:
+					case 8:
+					case 10:
+					case 12:
+						numMax = 31;
+					break;
+					case 4:
+					case 6:
+					case 9:
+					case 11:
+						numMax = 30;
+					break;
+					case 2:
+						numMax = 28;
+					break;
+				}
+				numMin = 1;
+				dia = Math.floor( Math.random() * ( numMax - numMin + 1 ) + numMin );
+				if ( mes < 10 ) {
+					mes = "0" + mes;
+				}
+				if ( dia < 10 ) {
+					dia = "0" + dia;
+				}
+				arPersonas[ i ][ 3 ] = anio + "/" + mes + "/" + dia;
+			}	
+			
+			for ( i = 0; i < arPersonas.length; i++ ) { 
+				for ( j = 0; j < arPersonas[ i ].length; j++ ) { 
+					document.write( arPersonas[ i ][ j ] ); 
+					document.write( " -- " );
+				}
+				document.write( "<br />" );
+			}
+			
+			
+			document.write( "<table>" );
+			document.write( "<thead>" );
+			document.write( "<tr>" );
+			document.write( "<th>" );
+			document.write( "nombre" );
+			document.write( "</th>" );
+			document.write( "<th>" );
+			document.write( "apellidos" );
+			document.write( "</th>" );
+			document.write( "<th>" );
+			document.write( "ciudad" );
+			document.write( "</th>" );
+			document.write( "<th>" );
+			document.write( "fecha de nacimiento" );
+			document.write( "</th>" );
+			
+			document.write( "</tr>" );
+			document.write( "</thead>" );
+			document.write( "<tbody>" );
+			for ( i = 0; i < arPersonas.length; i++ ) { 
+				document.write( "<tr>" );
+				for ( j = 0; j < arPersonas[ i ].length; j++ ) { 
+					document.write( "<td>" );
+					document.write( arPersonas[ i ][ j ] ); 
+					document.write( "</td>" );
+				}
+				document.write( "</tr>" );
+			}
+			document.write( "</tbody>" );
+			document.write( "</table>" );
+				
+			
+			// Impreso en formato chino.
+			/*
+			for ( j = 0; j < arPersonas[ 0 ].length; j++ ) { 
+				for ( i = 0; i < arPersonas.length; i++ ) { 
+					document.write( arPersonas[ i ][ j ] ); 
+					document.write( " -- " );
+				}
+				document.write( "<br />" );
+			}
+			*/
+		</script>
+	</head>
+	<body>
+		<!-- <table>
+			<thead>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						Ana 
+					</td>
+					<td>
+						Herrera 
+					</td>
+					<td>
+						Valencia 
+					</td>
+					<td>
+						26 de febrero de 1990
+					</td>
+				</tr>
+			</tbody>
+		</table> -->
+	</body>
+</html>

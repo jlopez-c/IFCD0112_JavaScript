@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>20. sort - ORDENAR.</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>
+			arPaises = [ "España", "Francia", "Portugal", "Italia", "Grecia", "Alemania", "Reino Unido", "Estados Unidos de America", "Canadá", "Federación Rusa", "Suiza", "Suecia", "Noruega", "Finlandia", "Belgica", "Holanda", "La Republica Dominicana", "Nueva Zelanda", "Republica de Bolivia", "Republica de Colombia", "Chile", "Republica del congo" ];
+			
+			arPaises.sort();
+			
+			document.write( arPaises );
+			document.write( "<br/>" );
+			
+			arNumeros = [ 30, 2, 23, 25, 200 ];
+			
+			arNumeros.sort(); // No ordena arrays numéricos.
+			
+			document.write( arNumeros );
+			document.write( "<br/>" );
+			
+			arNumeros.sort( function( a, b ) { return a-b } );
+			
+			document.write( arNumeros );
+			document.write( "<br/>" );
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

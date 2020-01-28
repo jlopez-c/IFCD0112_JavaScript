@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 4.</title>
+		
+		<script>
+			// 4.
+			// Cree una function en la cual obtenga los elementos que su longitud sea superior o igual a un número.
+			// La function recibe el array y la longitud
+			// Y retorna los elementos que cumplan el criterio.
+			
+			
+			function getElementsByLength( arTmp, itemLength ) {
+				var arElements = new Array();
+				var i;
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ].length >= itemLength ) {
+						arElements[ arElements.length ]= arTmp[ i ];
+					}
+				}
+				
+				return arElements;
+			}
+			
+			function init() {
+				var arPaises = [ "España", "Francia", "Portugal", "Italia", "Grecia", "Alemania", "Reino Unido", "Estados Unidos de America", "Canadá", "Federación Rusa", "Suiza", "Suecia", "Noruega", "Finlandia", "Belgica", "Holanda", "La Republica Dominicana", "Nueva Zelanda", "Republica de Bolivia", "Republica de Colombia", "Chile", "Republica del congo" ];
+				var arElements;
+				
+				arElements = getElementsByLength( arPaises, 10 );
+				document.write( arElements );
+			}
+			
+			init();					
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

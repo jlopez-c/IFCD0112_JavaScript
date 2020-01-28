@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>4. Estructura if e if anidado</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>
+			golesEquipo1 = 6;
+			golesEquipo2 = 6;
+			if ( golesEquipo1 > golesEquipo2 ) {
+				document.write( "Equipo1 gana" );
+			} else {
+				document.write( "Equipo2 gana o empate" );
+			}
+			
+			golesEquipo1 = 6;
+			golesEquipo2 = 6;
+			if ( golesEquipo1 == golesEquipo2 ) {
+				document.write( "Empate" );
+			} else {
+				document.write( "Equipo1 gana o Equipo2 gana" );
+			}
+			
+			document.write( "<br/><br/>" );
+			golesEquipo1 = 3;
+			golesEquipo2 = 3;
+			document.write( "<br/>Primera forma:" );
+			if ( golesEquipo1 > golesEquipo2 ) {
+				document.write( "Equipo1 gana" );
+			} else {
+				if ( golesEquipo1 == golesEquipo2 ) {
+					document.write( "Empate" );
+				} else {
+					document.write( "Equipo2 gana" );
+				}	
+			}
+			
+			document.write( "<br/>Segunda forma:" );
+			if ( golesEquipo1 > golesEquipo2 ) {
+				document.write( "Equipo1 gana" );
+			} else {
+				if ( golesEquipo1 < golesEquipo2 ) {
+					document.write( "Equipo2 gana" );
+				} else {
+					document.write( "Empate" );
+				}	
+			}
+			
+			document.write( "<br/>Tercera forma:" );
+			if ( golesEquipo1 == golesEquipo2 ) {
+				document.write( "Empate" );
+			} else {
+				if ( golesEquipo1 > golesEquipo2 ) {
+					document.write( "Equipo1 gana" );
+				} else {
+					document.write( "Equipo2 gana" );
+				}	
+			}
+			
+			document.write( "<br/>Cuarta forma:" );
+			if ( golesEquipo1 == golesEquipo2 ) {
+				document.write( "Empate" );
+			} else {
+				if ( golesEquipo1 < golesEquipo2 ) {
+					document.write( "Equipo2 gana" );
+				} else {
+					document.write( "Equipo1 gana" );
+				}	
+			}
+			
+			document.write( "<br/>Quinto forma:" );
+			if ( golesEquipo1 < golesEquipo2 ) {
+				document.write( "Equipo2 gana" );
+			} else {
+				if ( golesEquipo1 > golesEquipo2 ) {
+					document.write( "Equipo1 gana" );
+				} else {
+					document.write( "Empate" );
+				}	
+			}
+			
+			document.write( "<br/>Sexto forma:" );
+			if ( golesEquipo1 < golesEquipo2 ) {
+				document.write( "Equipo2 gana" );
+			} else {
+				if ( golesEquipo1 == golesEquipo2 ) {
+					document.write( "Empate" );
+				} else {
+					document.write( "Equipo1 gana" );
+				}	
+			}
+			
+			
+			
+			document.write( "<br/>if anidados en valor si verdadero. NO mola." );
+			if ( golesEquipo1 >= golesEquipo2 ) {
+				if ( golesEquipo1 > golesEquipo2 ) {
+					document.write( "Equipo1 gana" );
+				} else {
+					document.write( "Empate" );
+				}
+			} else {
+				document.write( "Equipo2 gana" );	
+			}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

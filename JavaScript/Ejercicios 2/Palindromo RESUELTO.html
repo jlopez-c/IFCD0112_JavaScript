@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>Palindromo</title>
+		
+		<script>
+			// Palindromo
+			// Cambia cada letra ini por End y devuelve la cadena.
+			function chgLetter( texto, letterIni, letterEnd ) {
+				var textoTmp = "";
+				var i;
+			
+				for ( i = 0; i < texto.length; i++ ) {
+					if ( texto[ i ] == letterIni ) {
+						textoTmp+= letterEnd;
+					} else {
+						textoTmp+= texto[ i ];
+					}
+				}
+				
+				return textoTmp;
+			} 
+			
+			function getLowerCase( texto ) {
+				return texto.toLowerCase();
+			}
+			
+			
+			// Compara si dos arrays son iguales, caracter a caracter.
+			function compareArrays( array1, array2 ) {
+				var i;
+				var bIguales = false;
+				
+				if ( array1.length == array2.length ) {
+					bIguales = true;
+					i = 0;
+					while ( i < array1.length && bIguales ) {
+						if ( array1[ i ] != array2[ i ]	) {
+							bIguales = false;
+						}
+						i++;
+					}
+				}
+				
+				return bIguales;
+			}
+			
+			// Compara si dos arrays son iguales, caracter a caracter.
+			// igual que el anterior pero con bucle for.
+			function compareArraysWithFor( array1, array2 ) {
+				var i;
+				var bIguales = false;
+				
+				if ( array1.length == array2.length ) {
+					bIguales = true;					
+					for ( i = 0; i < array1.length && bIguales; i++ ) { // Es equivalente al while.
+						if ( array1[ i ] != array2[ i ]	) {
+							bIguales = false;
+						}
+					}
+				}
+				
+				return bIguales;
+			}
+			
+			// Compara si dos arrays son iguales, caracter a caracter.
+			// igual que el anterior pero en vez de utilizar la var. bIguales para salir del bucle emplea
+			// un break;
+			
+			function compareArraysWithBreak( array1, array2 ) {
+				var i;
+				var bIguales = false;
+				if ( array1.length == array2.length ) {	
+					bIguales = true;
+					for ( i = 0; i < array1.length; i++ ) { // Es equivalente al while.
+						if ( array1[ i ] != array2[ i ]	) {
+							bIguales = false;
+							break;
+						}
+					}
+				}
+				
+				return bIguales;
+			}
+			
+			
+			function isPalindromo( texto ) {
+				var i; 
+				var arTexto, arTextoRev;
+				
+				var arLetters = [ [ "á", "a" ], [ "é", "e" ], [ "í", "i" ], [ "ó", "o" ], [ "ú", "u" ], [ " ", "" ], [ "?", "" ], [ "¿", "" ], [ ",", "" ], [ ".", "" ] ];
+				
+				/* Es lo mismo que la definición anterior 
+				arLetters[ 0 ][ 0 ] = "á";
+				arLetters[ 0 ][ 1 ] = "a";
+				arLetters[ 1 ][ 0 ] = "é";
+				arLetters[ 1 ][ 1 ] = "e";
+				arLetters[ 2 ][ 0 ] = "í";
+				arLetters[ 2 ][ 1 ] = "i";
+				...
+				*/
+				// Convertimos a minúsculas.
+				texto = getLowerCase( texto );
+				
+				// Sustituimos cada uno de los carácteres por su equivalente.
+				for ( i = 0; i < arLetters.length; i++ ) {
+					texto = chgLetter( texto, arLetters[ i ][ 0 ], arLetters[ i ][ 1 ] );
+					console.log( texto );
+				}
+				
+				arTexto = texto.split( "" ); // Convertimos a array para poder revertirlo.
+				
+				arTextoRev = arTexto.slice(); // Lo copiamos.
+				
+				arTextoRev = arTextoRev.reverse(); // Lo revertimos.
+				
+				
+				// Y retornamos true|false si son iguales o no.
+				//return compareArrays( arTexto, arTextoRev );
+				return compareArraysWithFor( arTexto, arTextoRev );
+				//return compareArraysWithBreak( arTexto, arTextoRev );
+				
+			}
+			
+			function init() {
+				var bPal;
+				
+				var cadena = "Adivina ya te opina, ya ni miles origina, ya ni cetro me domina, ya ni monarcas, a repaso ni mulato carreta, acaso nicotina, ya ni cita vecino, anima cocina, pedazo gallina, cedazo terso nos retoza de canilla goza, de pánico camina, ónice vaticina, ya ni tocino saca, a terracota luminosa pera, sacra nómina y ánimo de mortecina, ya ni giros elimina, ya ni poeta, ya ni vida";
+				//var cadena = "Amád a la dama";
+				bPal = isPalindromo( cadena );
+				
+				if ( bPal ) {
+					document.write( cadena + "<br/>Es palindromo" );
+				} else {
+					document.write( cadena + "<br/>No es palindromo" );
+				}
+			}
+			
+			init();
+			
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

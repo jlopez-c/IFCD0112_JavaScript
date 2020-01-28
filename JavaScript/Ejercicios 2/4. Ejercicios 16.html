@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>4. Ejercicios 16.</title>
+		
+		<script>
+			// 16.
+			// Escriba los nombres más cortos. ( número de caracteres ).
+			
+			function isInArray( arTmp, busqueda ) {
+				var bEsta = false;
+				var i;
+				
+				for ( i = 0; i < arTmp.length && !bEsta; i++ ) {
+					if ( arTmp[ i ] == busqueda ) {
+						bEsta = true;
+					}
+				}
+				return bEsta;
+			}
+			
+			function srhElementsShort( arTmp ) {
+				var i;
+				var arRetorno = [];
+				var longMasCorta = arTmp[ 0 ].length;
+				
+				for ( i = 1; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ].length < longMasCorta ) {
+						longMasCorta = arTmp[ i ].length;
+					}
+				}
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ].length == longMasCorta ) {
+						if ( !isInArray( arRetorno, arTmp[ i ] ) ) {
+							arRetorno[ arRetorno.length ] = arTmp[ i ];
+						}
+					}
+				}
+				
+				return arRetorno;
+			}			
+			
+			function init() {
+				var arNombres = [ "LUIS", "EVA1", "ANA", "ANA MARÍA", "JUANA", "JOSÉ", "JOSÉ MARÍA", "LUISaq", "OLGA", "RUTH", "EVA", "JUAN", "LUIS", "PEPE", "MARÍA", "MARIO", "ROBERTO", "ALBERTO", "EVA MARÍA", "OLGA", "ELENA", "MARÍA ELENA TERESA", "LUIS", "LUIS", "OLGA", "MARÍA" ];
+				
+				
+				document.write( "Los nombres más cortos son: " + srhElementsShort( arNombres ) );
+				
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

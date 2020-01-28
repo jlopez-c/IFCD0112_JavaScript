@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>15. Consolidación y funciones de texto</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>		
+			// length.
+			
+			arNombres = [ "María", "Juan", "Ana", "Luis" ];
+			
+			document.write( "El array arNombres tiene " + arNombres.length + " nombres." );
+			
+			document.write( "<br/>La primera posición tiene un nombre de " + arNombres[ 0 ].length + " letras."); 
+			
+			nombre = "José María";
+			
+			document.write( "<br/>" + nombre + " tiene " + nombre.length + " caracteres.");
+			
+			document.write( "<br/>" + nombre.toUpperCase() );
+			
+			document.write( "<br/>" + nombre );
+			
+			document.write( "<br/>" + nombre.charAt( 1 ).toUpperCase() );
+			
+			texto = "Calcula la posición en la que se encuentra el carácter indicado dentro de la cadena de texto. Si el carácter se incluye varias veces dentro de la cadena de texto, se devuelve su primera posición empezando a buscar desde la izquierda. Si la cadena no contiene el carácter, la función devuelve el valor -1:";
+			
+			document.write( "<br/>" + texto.indexOf( "cadena", 0 ) );
+			
+			document.write( "<br/>" + texto.indexOf( "cadena", 78 ) );
+			
+			document.write( "<br/>" + texto.indexOf( "cadena", 147 ) );
+			
+			document.write( "<br/>" + texto.indexOf( "cadena", 241 ) );
+			
+			
+			pos = texto.indexOf( "." );
+			// Extrae desde la posición inicial hasta la final( la última no).
+			document.write ( "<br/>" + texto.substring( 0, pos + 1 ) );
+			
+			//SPLIT
+			datos = "Jose María Gómez-12324451H-c/Pez, 4-Madrid-28017-España";
+			arDatos = datos.split( "-" );
+			for ( i = 0; i < arDatos.length; i++ ) {
+				document.write( "<br/>" + arDatos[ i ] );
+			}
+			
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

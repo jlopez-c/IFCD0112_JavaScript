@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>9. DOM - Eventos</title>
+		<meta charset="UTF-8">
+		
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px; }
+				
+			div.caja {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 30px;
+				width: 100px;
+				height: 100px;
+				background-color: gray;
+				border-radius: 50%; }
+				
+			div.rojo {
+				border: 1px solid red;
+				color: blue; }
+				
+			div.verde {
+				border: 1px solid green; }
+				
+			div.azul {
+				background-color: blue;
+				color: red; }
+				
+			div#contenidos2 {
+				width:150px; 
+				height:60px; 
+				border:thin solid silver; }
+				
+			.bordeblack {
+				border:thin solid black; }
+			
+			.bordesilver {
+				border:thin solid silver; }
+				
+		</style>
+		<script>
+			function mostrarMensaje() {
+				alert( "Yo soy la caja 2" );
+			}
+			
+			function entrar() {
+				//document.getElementById( 'contenidos2' ).style.borderColor='black';
+				document.getElementById( 'contenidos2' ).classList.add( "bordeblack" );
+			}
+			function salir() {
+				//document.getElementById( 'contenidos2' ).style.borderColor='black';
+				document.getElementById( 'contenidos2' ).classList.add( "bordesilver" );
+			}
+			window.onload = function() {
+				var nodos = document.getElementsByClassName( "caja" );
+				
+				//nodos[ 0 ].classList.add( "verde" );
+
+				
+			}			
+			
+		</script>
+	</head>
+	<body>
+		<!-- No es buena forma de definir un evento ya que mezclamos código Javascript y HTML -->
+		<div class="caja rojo" onclick="alert( 'Gracias por pinchar' );">1</div>
+		
+		<div id="contenidos" style="width:150px; height:60px; border:thin solid silver;" onmouseover="document.getElementById('contenidos').style.borderColor='black';" onmouseout="document.getElementById('contenidos').style.borderColor='silver';">
+		  Sección de contenidos...
+		</div>
+		
+		
+		<!-- Mejora un poco el ejemplo anterior pero sigue sin ser perfecta -->
+		<div class="caja rojo" onclick="mostrarMensaje();">2</div>
+		<div id="contenidos2" onmouseover="entrar();" onmouseout="salir();">
+		  Sección de contenidos...
+		</div>
+		<div class="caja rojo">3</div>
+		<div class="caja rojo azul">4</div>
+		
+		
+
+
+	</body>
+	
+</html>
+
+
+
+
+
+
+

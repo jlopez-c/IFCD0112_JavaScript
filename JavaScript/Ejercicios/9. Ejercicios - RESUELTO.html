@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>9. Ejercicios</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>
+			document.write ( "<h1>Ejercicios Arrays.</h1>" );
+			arNombres = [ "Juan", "Pepe", "Ana", "Eva", "Luis", "Olga", "Anabel", "José", "Elena", "Ana", "Juan", "Pepe", "Ernesto", "Elena", "Eva", "Alberto" ];
+			
+			arEdad = [ 23, 12, 13, 14, 16, 24, 24, 78, 54, 45, 16, 24, 24, 78, 54, 45 ];
+			
+			arSexo = [ false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false];
+			
+			// 1. Mostrar los nombres mayores de edad.
+			document.write ( "<h2>1. Mostrar los nombres mayores de edad.</h2>" );
+			for ( i = 0; i < arNombres.length; i++ ) {
+				if ( arEdad[ i ] >= 18 ) { // o >17 aunque si estuviesemos calculando la edad no valdría.
+					document.write( arNombres[ i ] + " - " );
+				}
+			}
+			
+			// 2. Mostrar los hombres.
+			document.write ( "<h2>2. Mostrar los hombres</h2>" );
+			for ( i = 0; i < arNombres.length; i++ ) {
+				if ( arSexo[ i ] ) {
+					document.write( arNombres[ i ] + " - " );
+				}
+			}
+			
+			// 3. Mostrar las mujeres mayores de edad.
+			document.write ( "<h2>3. Mostrar las mujeres mayores de edad.</h2>" );
+			for ( i = 0; i < arNombres.length; i++ ) {
+				if ( !arSexo[ i ] && arEdad[ i ] >= 18 ) {
+					document.write( arNombres[ i ] + " - " );
+				}
+			}	
+					
+			// 4. Mostrar los que empiezan por E y son hombres
+			document.write ( "<h2>4. Mostrar los que empiezan por E y son hombres</h2>" );
+			for ( i = 0; i < arNombres.length; i++ ) {
+				if ( arNombres[ i ].charAt( 0 ) == "E" && arSexo[ i ] ) {
+					document.write( arNombres[ i ] + " - " );
+				}
+			}
+			// 5. Mostrar los que empiezan por E y son mujeres, menores de edad.
+			document.write ( "<h2>5. Mostrar los que empiezan por E y son mujeres, menores de edad.</h2>" );
+			for ( i = 0; i < arNombres.length; i++ ) {
+				if ( arNombres[ i ].charAt( 0 ) == "E" && !arSexo[ i ] && arEdad[ i ] < 18 ) {
+					document.write( arNombres[ i ] + " - " );
+				}
+			}
+			// 6. Mostrar los hombres son entre 20 y 30.
+			document.write ( "<h2>6. Mostrar los hombres son entre 20 y 30.</h2>" );
+			for ( i = 0; i < arNombres.length; i++ ) {
+				if ( arSexo[ i ] && arEdad[ i ] >= 20 && arEdad[ i ] <= 30 ) {
+					document.write( arNombres[ i ] + " - " );
+				}
+			}
+			
+			// 7. Mostrar la edad de todas las mujeres y calcular la suma y la media.
+			document.write ( "<h2>7. Mostrar la edad de todas las mujeres y calcular la suma y la media.</h2>" );
+			suma = 0;
+			numMujeres = 0;
+			for ( i = 0; i < arNombres.length; i++ ) {
+				if ( !arSexo[ i ] ) {
+					document.write( arNombres[ i ] + " - " + arEdad[ i ] );
+					suma+= arEdad[ i ];
+					numMujeres++;
+				}
+			}
+			document.write( "La suma es: " + suma );
+			document.write( "<br /> La media es: " + ( suma / numMujeres ) );
+			
+			// 8. Mostrar los hombres, nombre y edad. Solo los tres primeros.
+			document.write ( "<h2>8. Mostrar los hombres, nombre y edad. Solo los tres primeros.</h2>" );
+			iHombres = 0;
+			i = 0;
+			while ( iHombres != 3 && i < arNombres.length  ) {
+				if ( arSexo[ i ] ) {
+					document.write( arNombres[ i ] + " - " + arEdad[ i ] );
+					iHombres++;
+				}
+				i++;
+			}
+			// 9. Mostrar la media de edad. De los que son mayores de edad.
+			document.write ( "<h2>9. Mostrar la media de edad. De los que son mayores de edad.</h2>" );
+			sumaMayores = 0;
+			iMayores = 0;
+			for ( i = 0; i < arNombres.length; i++ ) {
+				if ( arEdad[ i ] >= 18 ) {
+					sumaMayores+= arEdad[ i ];
+					iMayores++; 
+				}
+			}
+			document.write( "<br /> La media es: " + ( sumaMayores / iMayores ) );
+			// 10. Averiguar cuantos hombres hay y cuantas mujeres.
+			document.write ( "<h2>10. Averiguar cuantos hombres hay y cuantas mujeres.</h2>" );
+			iHombres = 0;
+			iMujeres = 0;
+			for ( i = 0; i < arEdad.length; i++ ) {
+				if ( arSexo[ i ] ) {
+					iHombres++;
+				} else {
+					iMujeres++;
+				}
+			}
+			document.write( "<br /> " + iHombres + " hombres y " + iMujeres + " mujeres" );
+			
+			// 10. Bis. Y calcular la media de edad.
+			document.write ( "<h2>10. Bis. Y calcular la media de edad.</h2>" );
+			
+			iHombres = 0;
+			iMujeres = 0;
+			sumaH = 0;
+			sumaM = 0;
+			for ( i = 0; i < arEdad.length; i++ ) {
+				if ( arSexo[ i ] ) {
+					iHombres++;
+					sumaH+= arEdad[ i ];
+				} else {
+					iMujeres++;
+					sumaM+= arEdad[ i ];
+				}
+			}
+			document.write( "<br /> " + iHombres + " hombres y " + iMujeres + " mujeres" );
+			document.write( "<br /> La media de edad de los hombres es " + Math.round( sumaH / iHombres * 10 ) / 10 + " y de las mujeres es " + ( sumaM / iMujeres ) + "." );
+			
+			// 10. Bis. Bis. Pero solo si son mayores de edad.
+			document.write ( "<h2>10. Bis. Bis. Pero solo si son mayores de edad.</h2>" );
+			iHombres = 0;
+			iMujeres = 0;
+			sumaH = 0;
+			sumaM = 0;
+			for ( i = 0; i < arEdad.length; i++ ) {
+				if ( arEdad[ i ] >= 18 ) {
+					if ( arSexo[ i ] ) {
+						iHombres++;
+						sumaH+= arEdad[ i ];
+					} else {
+						iMujeres++;
+						sumaM+= arEdad[ i ];
+					}
+				}
+			}
+			document.write( "<br /> " + iHombres + " hombres y " + iMujeres + " mujeres" );
+			document.write( "<br /> La media de edad de los hombres es " + Math.round( sumaH / iHombres * 10 ) / 10 + " y de las mujeres es " + ( sumaM / iMujeres ) + "." );
+			
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>
+
+
+

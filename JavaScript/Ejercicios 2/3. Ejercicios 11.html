@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 11.</title>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		
+		<script>
+			// 11.
+			// Cree una function en la cual devuelva los elementos que sean inferiores a la media.
+			// La function recibe el array (este debe ser numérico).
+			// Y retorna todos los elementos que sean inferiores a la media.
+			function getElementsByMediaInf( arTmp ) {
+				var media;
+				var i;
+				var arElements = [];
+				
+				media = getMediaArray( arTmp );
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ] < media ) {
+						arElements[ arElements.length ] = arTmp[ i ];
+					}					
+				}
+				
+				return arElements;
+			}
+			
+			function init() {
+				var arNumbers = [ 4, 6, 12, 24 ];
+				
+				document.write ( "Los elementos inferiores a la media son: " + getElementsByMediaInf( arNumbers ) );
+			}
+			
+			init();
+		
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

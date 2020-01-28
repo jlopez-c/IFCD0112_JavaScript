@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 23.</title>
+		<style>
+			span.ok {
+				color: green; }
+				
+			span.error {
+				color: red; }
+		</style>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		<script>
+			// 23.
+			// Lo mismo que el anterior
+			// Pero ahora no se informa al usuario de cuales han ido bien según contesta sino al final cuando 
+			// ha contestado todas las operaciones.
+			// Debes de ir guardando el resultado de las operaciones en un array.
+			
+			function genMultOrSums( numOperaciones ) {
+				var factor1, factor2, resUsuario;
+				var resCorrecto;
+				var sMensaje = "";
+				var i = 0; // Para contar operaciones del usuario.
+				var bRetorno; // Uilizada para enviar true( todas las operacioens OK ) o false (fallo alguna y se sale).
+				var arTmp = []; // Utilizada para almacenar las operaciones.
+				
+				do {
+					factor1 = genAleatorio( 1, 10 );
+					operador = genAleatorio( 0, 1 );
+					factor2 = genAleatorio( 1, 10 );
+					
+					switch ( operador ) {
+						case 0: // multiplicacion.
+							sOperador = " x ";
+							resCorrecto = factor1 * factor2;
+						break;
+						case 1: // suma.
+							sOperador = " + ";
+							resCorrecto = factor1 + factor2;
+						break;
+					}
+					
+					resUsuario = prompt( sMensaje + factor1 + sOperador + factor2 + " = " );
+					
+					ultPosicion = arTmp.length;
+					
+					arTmp[ ultPosicion ] = ( i + 1 ) + ". " + factor1 + sOperador + factor2 + " = " + resUsuario;
+					if ( resUsuario == resCorrecto ) {
+						arTmp[ ultPosicion ]+= ". <span class='ok'>OK</span>";
+					} else {
+						arTmp[ ultPosicion ]+= ". <span class='error'>Error. La respuesta correcta era: " + resCorrecto + "</span>";
+					}
+					sMensaje = "Sigue.\n";
+					i++;
+				} while ( i != numOperaciones );
+				
+				return arTmp;
+			}
+			
+			function imprimeResultados( arTmp, separador ) {
+				var i;
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					document.write( arTmp[ i ] );
+					switch ( separador ) {
+						case "saltodelinea":
+							document.write( "<br/>" );
+						break;
+						case "guion":
+							document.write( " - " );
+						break;
+					}
+				}
+			}
+			
+			function init() {
+				var arResultados;
+				var numOperaciones;
+				
+				numOperaciones = prompt( "¿Cuántas operaciones quieres realizar?" );
+				arResultados = genMultOrSums( numOperaciones );
+
+				imprimeResultados( arResultados, "saltodelinea" );
+				//imprimeResultados( arResultados, "guion" );
+				
+			}
+			
+			
+			init();
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

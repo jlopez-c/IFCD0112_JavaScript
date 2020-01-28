@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>6. Ejercicio DOM.</title>
+		<meta charset="UTF-8">
+		<style>
+			div {
+				border: 1px solid blue;
+				padding: 10px; }
+				
+			span {
+				color: white; }
+				
+			span.par {
+				color: blue; }
+				
+			span.impar {
+				color: green; }
+		</style>
+		<script>
+			// Con Function
+			// Escribir numeros aleatorios entre 1 y 100 en el primer div hasta que se generen dos números aleatorios iguales seguidos.
+			// En el segundo div escribir cuantos numeros se han generado y el número que se ha repetido.
+			// No escribir el número repetido (ninguno de ellos en el primer div ).
+			function genAleatorio( numMinimo, numMaximo ) {
+				var numAleat = Math.floor( Math.random() * ( numMaximo - numMinimo + 1 ) + numMinimo );
+				
+				return numAleat;
+			}
+			
+			
+			
+			function genHastaDosIguales_v1() {
+				var numAleatAnt = 0;
+				var numAleat = -1;
+				var bPrimeraVez = false;
+				var i = 0;
+				
+				var nodos = document.getElementsByTagName( "div" );
+				
+				numAleat = genAleatorio( 1, 100 );
+				i++;
+				
+				while ( numAleatAnt != numAleat ) {		
+					numAleatAnt = numAleat;
+					numAleat = genAleatorio( 1, 100 );
+					i++;
+					if ( numAleatAnt == numAleat ) {
+						nodos[ 1 ].innerHTML = "Número repetido es " + numAleat;
+						nodos[ 1 ].innerHTML+= "<br />" + i + " números generados.";
+					} else {
+						nodos[ 0 ].innerHTML+= numAleatAnt + " ";
+					}	
+				}				
+			}
+			
+			function genHastaDosIguales_v2() {
+				var numAleatAnt = 0;
+				var numAleat = -1;
+				var bPrimeraVez = false;
+				var i = 0;
+				
+				var nodos = document.getElementsByTagName( "div" );
+				
+				numAleat = genAleatorio( 1, 100 );
+				i++;
+				do {
+					if ( !bPrimeraVez ) {
+						bPrimeraVez = true;
+					} else {
+						nodos[ 0 ].innerHTML+= "<span>" + numAleatAnt + "</span> ";
+					}
+					numAleatAnt = numAleat;
+					
+					numAleat = genAleatorio( 1, 100 );
+					i++;
+				} while ( numAleatAnt != numAleat );
+				
+				nodos[ 1 ].innerHTML = "Número repetido es " + numAleat;
+				nodos[ 1 ].innerHTML+= "<br />" + i + " números generados.";
+			}
+			
+			function setColorNumbers() {
+				var nodos = document.getElementsByTagName( "span" );
+				
+				for ( i = 0; i < nodos.length; i++ ) {
+					if ( nodos[ i ].innerHTML % 2 == 0 ) {
+						nodos[ i ].classList.add( "par" );
+					} else {
+						nodos[ i ].classList.add( "impar" );
+					}
+				}
+			}
+
+			window.onload = function() {
+				genHastaDosIguales_v2();
+				setColorNumbers();
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+
+	</body>
+</html>

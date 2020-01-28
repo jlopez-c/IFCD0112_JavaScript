@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 12.</title>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		
+		<script>
+			// 12.
+			// Cree una function en la cual devuelva los números pares de un array.
+			// La function recibe el array (este debe ser numérico).
+			// Y retorna todos los elementos que sean pares.
+			
+			function getElementsEven( arTmp ) {
+				var media;
+				var i;
+				var arElements = [];
+								
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ] % 2 == 0 ) {
+						arElements[ arElements.length ] = arTmp[ i ];
+					}					
+				}
+				
+				return arElements;
+			}
+			
+			function init() {
+				var arNumbers = [ 4, 6, 12, 24, 23 ];
+				
+				document.write ( "Los números pares son: " + getElementsEven( arNumbers ) );
+			}
+			
+			init();
+		
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 18.</title>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		<script>
+			// 16.
+			// Cree una function en la cual se generan números aleatorios del 1 al 100 pero 
+			// solo se guardaran en el array si el número generado es superior al anterior.
+			// Cuando no se puedan generar más números la función retornará en un array los números generados.
+			
+			// 17. 
+			// Lo mismo que el anterior pero ahora a la función le enviamos el rango de números aleatorios.
+			
+			// 18. 
+			// Lo mismo que el 17 pero ahora también le enviamos si queremos los números ascendendes o descendentes
+			
+			function genNumSupInf( numMin, numMax, bAscendente ) {
+				var arNumeros = [];				
+				var numAleat;
+				var numSalida;
+				var bPrimeraVez;
+				
+				if ( bAscendente ) {
+					numAleat = numMin - 1;
+					numSalida = numMax;
+				} else {
+					numAleat = numMax + 1;
+					numSalida = numMin;
+				}
+				
+				bPrimeraVez = false;
+				while ( numAleat != numSalida )  {
+					numAleat = genAleatorio( numMin, numMax );
+					if ( !bPrimeraVez ) {
+						bPrimeraVez = true;
+						arNumeros[ arNumeros.length ] = numAleat;
+					} else {		
+						if ( bAscendente ) {
+							if ( arNumeros[ arNumeros.length - 1 ] < numAleat ) {
+								arNumeros[ arNumeros.length ] = numAleat;
+							}
+						} else {
+							if ( arNumeros[ arNumeros.length - 1 ] > numAleat ) {
+								arNumeros[ arNumeros.length ] = numAleat;
+							}
+						}
+					}
+				}
+				
+				return arNumeros;
+			}
+			
+			function init() {
+				var arNumerosSupInf = [];
+				arNumerosSupInf = genNumSupInf( 1, 100000, true );
+				document.write( "Los números generados ascendente son:<br/>" + arNumerosSupInf + "<br/>" );
+				
+				arNumerosSupInf = genNumSupInf( 1, 100000, false );
+				document.write( "Los números generados descendente son:<br/>" + arNumerosSupInf + "<br/>" );
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

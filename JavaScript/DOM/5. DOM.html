@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>5. DOM</title>
+		<meta charset="UTF-8">
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px; }
+				
+			div {
+				border: 1px solid blue;
+				width: 50px;
+				height: 50px;
+				padding: 10px;
+				float: left;
+				text-align: center; }
+				
+			div.rojo {
+				border: 1px solid red; }
+				
+			p.resaltado {
+				font-weight: bold; }
+		</style>
+		<script>
+			
+			window.onload = function() {
+				var nodos;
+				var i;
+				
+				// Escribiendo en los nodos con la clase Rojo.
+				nodos = document.getElementsByClassName( "rojo" );
+				
+				for ( i = 0; i < nodos.length; i++ ) {
+					nodos[ i ].innerHTML = "<p class='resaltado'>Soy rojo</p>";
+				}
+				
+				// Reutilizo nodos.
+				// Escribiendo en el resto de nodos.
+				nodos = document.getElementsByTagName( "div" );
+				for ( i = 0; i < nodos.length; i++ ) {
+					if ( nodos[ i ].className != "rojo" ) {
+						nodos[ i ].innerHTML = "Soy azul";
+					}
+				}
+				
+				// Reutilizo nodos.
+				// Escribiendo el número de cada uno de ellos.
+				nodos = document.getElementsByTagName( "div" );
+				for ( i = 0; i < nodos.length; i++ ) {
+					nodos[ i ].innerHTML+= "<p>" + ( i + 1 ) + "</p>";
+				}
+				
+				
+				nodos = document.getElementsByTagName( "body" );
+				alert ( nodos[ 0 ].innerHTML );
+				nodos[ 0 ].innerHTML+= "Hola";
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+	
+		<div></div>
+		<div></div>
+		<div class="rojo"></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div class="rojo"></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div class="rojo"></div>
+		<div class="rojo"></div>
+		<div></div>
+		<div></div>
+		
+	</body>
+	
+</html>

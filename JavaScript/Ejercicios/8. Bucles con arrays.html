@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>8. Bucles con arrays.</title>
+		<meta charset="UTF-8">
+		<style>
+			p.rojo {
+				color: red; }
+			p.azul {
+				color: blue;}
+		</style>
+		<script>		
+			arNombres = [ "Juan", "Pepe", "Ana", "Eva", "Luis", "Olga", "Anabel", "José", "Elena", "Ana" ];
+			
+			arEdad = [ 23, 12, 13, 14, 16, 24, 24, 78, 54, 45 ];
+			
+			arSexo = [ true, true, false, false, true, false, false, true, false, false ];
+			
+			for ( i = 0; i < arNombres.length; i++ ) {
+				document.write( arNombres[ i ] );
+			}
+			document.write( "<br />" );
+			
+			for ( i = 0; i < arNombres.length; i++ ) {
+				document.write ( i + " - " + arNombres[ i ] + "<br />" );
+			}
+			document.write( "<br />" );
+			
+			for ( i = 0; i < arNombres.length; i++ ) {
+				if ( arNombres[ i ] != "Ana" ) {
+					document.write( i + " - " + arNombres[ i ] + "<br />" );
+				}
+			}
+			document.write( "<br />" );
+			
+			// charAt es un metodo que me permite obtener el caracter indicado en el argumento.
+			for ( i = 0; i < arNombres.length; i++ ) {
+				document.write( arNombres[ i ].charAt( 0 ) );
+			}
+			document.write( "<br />" );
+			for ( i = 0; i < arNombres.length; i++ ) {
+				if ( arNombres[ i ].charAt( 0 ) == "J" ) {
+					document.write( arNombres[ i ] );
+				}
+			}
+			
+			document.write( "<br />" );
+			for ( i = 0; i < arNombres.length; i++ ) {
+				if ( arSexo[ i ] ) {
+					document.write( "<p class='azul'>" + arNombres[ i ] + "</p>" );
+				} else {
+					document.write( "<p class='rojo'>" + arNombres[ i ] + "</p>" );
+				}
+			}
+			
+			document.write( "<br />" );
+			document.write( "Las mujeres del array arNombres: " );
+			for ( i = 0; i < arNombres.length; i++ ) {
+				if ( !arSexo[ i ] ) {
+					document.write( "<p class='rojo'>" + arNombres[ i ] + "</p>" );
+				} 
+			}
+			
+			// Mostrar todos los nombres hasta que encontremos un José.
+			i = 0;
+			while ( arNombres[ i ] != "José" ) {
+				document.write( arNombres[ i ] + "<br/>" );
+				i++;
+			}
+			
+			for ( i = 0; arNombres[ i ] != "José"; i++ ) {
+				document.write( arNombres[ i ] + "<br/>" );
+			}
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

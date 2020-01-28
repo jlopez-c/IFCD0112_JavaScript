@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>4. Ejercicios 9.</title>
+		
+		<script>
+			// 9. 
+			// Muestre por pantalla todos los nombres repetidos y las veces que se repite.
+			
+			function isInArray( arNameRep, busqueda ) {
+				var bEsta = false;
+				var i;
+				
+				for ( i = 0; i < arNameRep.length && !bEsta; i++ ) {
+					if ( arNameRep[ i ][ 0 ] == busqueda ) {
+						bEsta = true;
+					}
+				}
+				return bEsta;
+			}
+			
+			function allNameRep( arTmp ) {
+				var i;
+				var posEncontrado;
+				var arNameRep = []; // Para almacenar los nombres repetidos.
+				
+				for ( i = 0; i < arTmp.length - 1; i++ ) { // La última posición no tiene sentido leerla.
+					for ( j = i + 1; j < arTmp.length; j++ ) {
+						if ( arTmp[ i ] == arTmp[ j ] ) {
+							bEsta = isInArray( arNameRep, arTmp[ i ] );
+							
+							if ( !bEsta ) {
+								ultPosicion = arNameRep.length;
+								arNameRep[ ultPosicion ] = new Array();
+								arNameRep[ ultPosicion ][ 0 ] = arTmp[ i ];
+								arNameRep[ ultPosicion ][ 1 ] = 0;
+								// Contar las veces que esta arTmp[ i ]
+								for ( k = i; k < arTmp.length; k++ ) {
+									if ( arTmp[ k ] == arTmp[ i ] ) {
+										arNameRep[ ultPosicion ][ 1 ]++;
+									}
+								}
+							}
+						}
+					}
+				}
+				
+				return arNameRep;
+			}		
+			
+			function init() {
+				var nomRepetido;
+				var arNomRepetidos = [];
+				
+				var arNombres = [ "ANDY", "WOODY", "BUZZ LIGHTYEAR", "BETTY", "SID PHILIPS", "ANDY", "REX", "SLINKY", "BETTY", "MR POTATO", "HAMM", "SID PHILIPS", "LENNY", "CARL", "ANDY", "HOMER SIMPSON", "LISA", "BART", "MAGGIE SIMPSON", "MARGE", "MONTGOMERY BURNS", "ANDY", "BETTY", "SID PHILIPS", "MAGGIE SIMPSON", "ANDY WARHOLE BUSTAMANTE" ];
+				
+				arNomRepetidos = allNameRep( arNombres ) ;
+				
+				if ( arNomRepetidos.length != 0 ) {
+					document.write( "Los nombres repetidos son: " + arNomRepetidos );
+				} else {
+					document.write( "No hay ningún nombre repetido." );
+				}
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

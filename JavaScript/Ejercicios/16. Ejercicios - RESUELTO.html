@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>16. Ejercicios.</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>	
+			arMeses = [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ];
+			
+			// 1. Cuantos meses contienen la cadena ero.
+			document.write( "<h3>1. Cuantos meses contienen la cadena ero.</h3>" );
+			iMeses = 0;
+			for ( i = 0; i < arMeses.length; i++ ) {
+				if ( arMeses[ i ].indexOf( "ero" ) != -1 ) {
+					iMeses++;
+				}
+			}
+			document.write( "Hay " + iMeses + " que contienen la cadena ero" );
+			
+			
+			// 1.1. Muestralos.
+			document.write( "<h3>1.1. Muestralos.</h3>" );
+			iMeses = 0;
+			for ( i = 0; i < arMeses.length; i++ ) {
+				if ( arMeses[ i ].indexOf( "ero" ) != -1 ) {
+					document.write( arMeses[ i ] + "<br/>" );
+				}
+			}
+			// 2. Cuantos meses comienzan por J y acaban en o.
+			document.write( "<h3>2. Cuantos meses comienzan por J y acaban en o.</h3>" );
+			iMeses = 0;
+			for ( i = 0; i < arMeses.length; i++ ) {
+				if ( arMeses[ i ].charAt( 0 ) == "J" && arMeses[ i ].charAt( arMeses[ i ].length - 1 ) == "o" ) {
+					iMeses++;
+				}
+			}
+			document.write( "Hay " + iMeses + " que empiezan por J y acaban en o." );
+			
+			// 2.1. Muestralos.
+			document.write( "<h3>2.1. Muestralos.</h3>" );
+			iMeses = 0;
+			for ( i = 0; i < arMeses.length; i++ ) {
+				if ( arMeses[ i ].charAt( 0 ) == "J" && arMeses[ i ].charAt( arMeses[ i ].length - 1 ) == "o" ) {
+					document.write( arMeses[ i ] + "<br/>" );
+				}
+			}
+			// 3. Escribe todos los meses del año en mayúsculas.
+			document.write( "<h3>3. Escribe todos los meses del año en mayúsculas.</h3>" );
+			for ( i = 0; i < arMeses.length; i++ ) {
+				document.write( arMeses[ i ].toUpperCase() );
+			}
+			
+			// 4. Escribe alternativamente un mes en mayúsculas y el otro en minúsculas.
+			document.write( "<h3>4. Escribe alternativamente un mes en mayúsculas y el otro en minúsculas.</h3>" );
+			for ( i = 0; i < arMeses.length; i++ ) {
+				if ( i % 2 == 0 ) {
+					document.write( arMeses[ i ].toUpperCase() );
+				} else {
+					document.write( arMeses[ i ].toLowerCase() );
+				}
+			}
+			document.write( "<h3>4.1 Escribe alternativamente un mes en mayúsculas y el otro en minúsculas.</h3>" );
+			bMayus = true;
+			for ( i = 0; i < arMeses.length; i++ ) {
+				if ( bMayus ) {
+					document.write( arMeses[ i ].toUpperCase() );
+				} else {
+					document.write( arMeses[ i ].toLowerCase() );
+				}
+				bMayus = !bMayus;
+			}
+			
+			// 5. Escribe alternativamente un mes en mayúsculas, en minúsculas y el otro tal y como este escrito.
+			document.write( "<h3>5. Escribe alternativamente un mes en mayúsculas, en minúsculas y el otro tal y como este escrito.</h3>" );
+			for ( i = 0; i < arMeses.length; i++ ) {
+				if ( i % 3 == 0 ) {
+					document.write( arMeses[ i ].toUpperCase() );
+				} else if ( i % 3 == 1 ) {
+					document.write( arMeses[ i ].toLowerCase() );
+				} else {
+					document.write( arMeses[ i ] );
+				}
+			}
+			// 6. Escribe los meses del año de 3 en 3 separados por un guion.
+			// Y los tres siguientes en la siguiente línea así hasta el final.
+			document.write( "<h3>6. Escribe los meses del año de 3 en 3 separados por un guion.</h3>" );
+			
+			for ( i = 0; i < arMeses.length; i++ ) {
+				document.write( arMeses[ i ] + "resto: " + ( i % 3 ) + "<br/>" );
+			}
+			document.write ( "-----<br/>" );
+			
+			bPrimeraVez = false;
+			for ( i = 0; i < arMeses.length; i++ ) {
+				if ( !bPrimeraVez ) {
+					bPrimeraVez = true;
+					document.write( arMeses[ i ] );
+				} else {
+					if ( i % 3 == 0 ) {
+						document.write( "#<br/>" );
+						document.write( arMeses[ i ] );
+					} else {
+						document.write( "-" + arMeses[ i ] );
+					}
+				}				
+			}
+			
+			document.write ( "<br/>OTRA FORMA- NO FUNCIONA POR ULTIMO SALTO DE LÍNEA----<br/>" );
+			
+			bPrimeraVez = false;
+			for ( i = 0; i < arMeses.length; i++ ) {
+				if ( !bPrimeraVez ) {
+					bPrimeraVez = true;
+					document.write( arMeses[ i ] );
+				} else {
+					document.write( "-" + arMeses[ i ] );
+					if ( i % 3 == 2 ) {
+						bPrimeraVez = false;
+						document.write( "#<br/>" );
+					}
+				}				
+			}
+		
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

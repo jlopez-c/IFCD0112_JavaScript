@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 9.</title>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		
+		<script>
+			// 9.
+			// Cree una function en la cual averigüe cual es el elemento más pequeño y el más grande.
+			// La function recibe el array (este debe ser numérico).
+			// Y retorna el número del elemento más pequeño y el más grande.
+
+			function getMaxAndMin( arTmp ) {
+				var arMaxMin = [];
+				
+				arMaxMin[ 0 ] = getMax( arTmp );
+				arMaxMin[ 1 ] = getMin( arTmp );
+				
+				return arMaxMin;
+			}
+			
+			function init() {
+				var arNumbers = [ 4, 3, 5, 10, 1, 1, 2, 10, 100, 100, -44, 203, 76 ];
+				
+				arNumMax_Min = getMaxAndMin( arNumbers );
+				
+				document.write( "El más grande es: " + arNumMax_Min[ 0 ] + "<br/>" );
+				document.write( "El más pequeño es: " + arNumMax_Min[ 1 ] );
+				
+			}
+			
+			init();
+		
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

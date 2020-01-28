@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 1.</title>
+		
+		<script>
+			// 1.
+			// Cree una function en la cual obtenga los elementos que empiecen por una letra.
+			// La function recibe el array y la letra.	
+			// Y retorna los elementos que cumplan el criterio.
+			
+			
+			
+			
+			function getElementsByInitialLetter_vString( arTmp, letter ) {
+				var cadX = "";
+				var i;
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ].charAt( 0 ) == letter ) {
+						cadX+= arTmp[ i ] + " - ";
+					}
+				}
+				return cadX;
+			}
+			
+			function getElementsByInitialLetter_vArray( arTmp, letter ) {
+				var arElements = new Array();
+				var i;
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ].charAt( 0 ) == letter ) {
+						//arElements.push( arTmp[ i ] ); Dicen que es más lento que la sig. línea.
+						arElements[ arElements.length ]= arTmp[ i ];
+					}
+				}
+				return arElements;
+			}
+			
+			function init() {
+				var arPaises = [ "España", "Francia", "Portugal", "Italia", "Grecia", "Alemania", "Reino Unido", "Estados Unidos de America", "Canadá", "Federación Rusa", "Suiza", "Suecia", "Noruega", "Finlandia", "Belgica", "Holanda", "La Republica Dominicana", "Nueva Zelanda", "Republica de Bolivia", "Republica de Colombia", "Chile", "Republica del congo" ];
+				var elements;
+				var arElements;
+				
+				elements = getElementsByInitialLetter_vString( arPaises, "E" );
+				
+				document.write( elements );
+				document.write( "<br />" );
+				arElements = getElementsByInitialLetter_vArray( arPaises, "E" );
+				document.write( arElements );
+			}
+			
+			init();
+			
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

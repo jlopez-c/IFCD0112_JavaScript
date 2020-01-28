@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>13. Ejercicios Números aleatorios</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>
+			/* 1. Hacer un script que nos genere 1000 números aleatorios entre 1 y 100. Y mostrarlos separados por un guion (sin guion final). Mostrarlos cuando se hayan generado todos. */
+			
+			document.write ( "<h3>1. Hacer un script que nos genere 1000 números aleatorios entre 1 y 100. Y mostrarlos separados por un guion (sin guion final). Mostrarlos cuando se hayan generado todos. </h3>" );
+			
+			bPrimeraVez = false;
+			numMin = 1;
+			numMax = 100;
+			for ( i = 1; i < 1001; i++ ) {
+				numAleat = Math.floor( Math.random() * ( numMax - numMin + 1 ) + numMin );
+				if ( !bPrimeraVez ){
+					bPrimeraVez = true;
+				} else {
+					document.write( " - " );
+				}
+				document.write( numAleat ); 
+			}
+			document.write ( "<h3>1BIS. Hacer un script que nos genere 1000 números aleatorios entre 1 y 100. Y mostrarlos separados por un guion (sin guion final). Mostrarlos cuando se hayan generado todos. </h3>" );
+			bPrimeraVez = false;
+			numMin = 1;
+			numMax = 100;
+			numeros = "";
+			for ( i = 1; i < 1001; i++ ) {
+				numAleat = Math.floor( Math.random() * ( numMax - numMin + 1 ) + numMin );
+				if ( !bPrimeraVez ){
+					bPrimeraVez = true;
+				} else {
+					numeros+= " - ";
+				}
+				numeros+= numAleat; 
+			}
+			
+			document.write( numeros );
+
+			/* 2. Hacer un script que nos genere 1000 números aleatorios entre 1 y 100. Y mostrarlos separados por un guion. Pero desechamos los números entre los valores 50 y 60, no generar uno nuevo para compensar el perdido. Mostrarlos cuando se hayan generado todos.  */
+
+			/* 3. Igual que el anterior pero ahora si hay que generar un nuevo número.  */
+
+			/* 4. Hacer un script que nos genere 1000 números aleatorios entre 1 y 100 y debemos contar cuantos números son entre 1 y 50.  */
+
+			/* 5. Hacer un script que nos genere 1000 números aleatorios entre 1 y 100 y debemos contar cuantos números son entre 25 y 50.  */
+
+			/*6. Lo mismo que el anterior pero num. Aleatorios entre 1 y 1000 pero que nos cuente los números 1 y 100, entre 101 y 200,… Utilizar el cociente y el resto.  */
+
+			
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

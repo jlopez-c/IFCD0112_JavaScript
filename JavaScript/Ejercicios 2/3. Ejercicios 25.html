@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 24.</title>
+		<style>
+			span.ok {
+				color: green; }
+				
+			span.error {
+				color: red; }
+		</style>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		<script>
+			// 25.
+			// Distinguir la nota por operaciones de multiplicaciones y por operaciones de sumas.
+			
+			function genMultOrSums( numOperaciones ) {
+				var factor1, factor2, resUsuario;
+				var resCorrecto;
+				var sMensaje = "";
+				var i = 0; // Para contar operaciones del usuario.
+				var bRetorno; // Uilizada para enviar true( todas las operacioens OK ) o false (fallo alguna y se sale).
+				var arTmp = []; // Utilizada para almacenar las operaciones.
+				
+				do {
+					factor1 = genAleatorio( 1, 10 );
+					operador = genAleatorio( 0, 1 );
+					factor2 = genAleatorio( 1, 10 );
+					
+					switch ( operador ) {
+						case 0: // multiplicacion.
+							sOperador = " x ";
+							resCorrecto = factor1 * factor2;
+						break;
+						case 1: // suma.
+							sOperador = " + ";
+							resCorrecto = factor1 + factor2;
+						break;
+					}
+					
+					resUsuario = prompt( sMensaje + factor1 + sOperador + factor2 + " = " );
+					
+					// guardo la última posición ya que añado diferente contenido en diferentes líneas en esta posición.
+					ultPosicion = arTmp.length;
+					
+					// Creo un array de dos dimensiones. En la posicion [ 0 ] Almaceno la operacion y Ok o Error.
+					// y en la posicion [ 1 ] almaceno true si acerto o false si fallo.
+					arTmp[ ultPosicion ] = new Array();
+					
+					arTmp[ ultPosicion ][ 0 ] = ( i + 1 ) + ". " + factor1 + sOperador + factor2 + " = " + resUsuario;
+					if ( resUsuario == resCorrecto ) {
+						arTmp[ ultPosicion ][ 0 ]+= ". <span class='ok'>OK</span>";
+						arTmp[ ultPosicion ][ 1 ] = true;
+					} else {
+						arTmp[ ultPosicion ][ 0 ]+= ". <span class='error'>Error. La respuesta correcta era: " + resCorrecto + "</span>";
+						arTmp[ ultPosicion ][ 1 ] = false;
+					}
+					
+					// Almaceno la x o el + sin espacios en blanco en una nueva columna del array.
+					arTmp[ ultPosicion ][ 2 ] = sOperador.trim();
+					
+					sMensaje = "Sigue.\n";
+					i++;
+				} while ( i < numOperaciones );
+				
+				return arTmp;
+			}
+			
+			function imprimeResultados( arTmp, separador ) {
+				var i;
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					document.write( arTmp[ i ][ 0 ] );
+					switch ( separador ) {
+						case "saltodelinea":
+							document.write( "<br/>" );
+						break;
+						case "guion":
+							document.write( " - " );
+						break;
+					}
+				}
+			}
+			
+			function calculaResultados( arTmp, operador ) {
+				var arResultados = [ 0, 0 ];
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( operador == arTmp[ i ][ 2 ] ) { // En la columna 2 está guardado el operador, x o +.
+						if ( arTmp[ i ][ 1 ] ) {
+							arResultados[ 0 ]++;
+						} else {
+							arResultados[ 1 ]++;
+						}
+					}
+				}
+				if ( arResultados[ 0 ] == 0 && arResultados[ 1 ] == 0 ) {
+					sMensaje = "Sin Operaciones.";
+				} else {
+					if ( arResultados[ 0 ] >= arResultados[ 1 ] ) {
+						sMensaje = "Has aprobado. ";
+					} else {
+						sMensaje = "Has suspendido. ";
+					}
+					sMensaje+= "Correctas : " + arResultados[ 0 ] + ". Incorrectas: " + arResultados[ 1 ] ;
+				}
+				
+				return sMensaje;
+			}
+			function init() {
+				var arResultados;
+				var numOperaciones;
+				
+				numOperaciones = prompt( "¿Cuántas operaciones quieres realizar?" );
+				arResultados = genMultOrSums( numOperaciones );
+
+				imprimeResultados( arResultados, "saltodelinea" );
+				document.write( "Los resultados para multiplicaciones: " + calculaResultados( arResultados, "x" ) + "<br/>");
+				document.write( "Los resultados para suma es: " + calculaResultados( arResultados, "+" ) );
+			}
+			
+			
+			init();
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

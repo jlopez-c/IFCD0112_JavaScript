@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>3. Ejercicio DOM.</title>
+		<meta charset="UTF-8">
+		<style>
+			div {
+				border: 1px solid blue;
+				padding: 10px; }
+		</style>
+		<script>
+			// Con Function
+			// Escribir 50 números aleatorios entre 1 y 100.
+			// En el div 1 -- Se escriben los pares.
+			// En el div 2 -- Se escriben los impares.
+			// En el div 3 -- Se escriben los multiplos de 3.
+			// En el div 4 -- Se escriben los múltiplos de 4.
+			// En el div 5 -- Se escriben los múltiplos de 5.
+			
+			// Lo de los guiones tambien.
+			
+			function genAleatorio( numMinimo, numMaximo ) {
+				var numAleat = Math.floor( Math.random() * ( numMaximo - numMinimo + 1 ) + numMinimo );
+				
+				return numAleat;
+			}
+			
+			function genMultiplos_v4() {
+				var i, numAleat;
+				var nodos;
+				var arPrimerasVeces = [];
+				
+				nodos = document.getElementsByTagName( "div" );
+				
+				// Inicializamos el array a false, y tantos false como div haya creados.
+				for ( k = 0; k < nodos.length; k++ ) {
+					arPrimerasVeces[ k ] = false;
+				}
+				
+				for ( i = 1; i < 51; i++ ) {
+					numAleat = genAleatorio( 1, 100 );
+					
+					// Para escribir en el nodo 0 o en el nodo 1.( par e impar ).
+					//if ( nodos[ numAleat % 2 ].innerHTML != "" ) {
+					
+					if ( !arPrimerasVeces[ numAleat % 2 ] ) {
+						arPrimerasVeces[ numAleat % 2 ] = true;
+					} else {
+						nodos[ numAleat % 2 ].innerHTML+= " - "
+					}
+					nodos[ numAleat % 2 ].innerHTML+= numAleat; 
+					
+					for ( j = 3; j < 6; j++ ) {
+						if ( numAleat % j == 0 ) {
+							// Escribir en el nodo j el numAleat.
+							if ( !arPrimerasVeces[ j - 1 ] ) {
+								arPrimerasVeces[ j - 1 ] = true;
+							} else {
+								nodos[ j - 1 ].innerHTML+= " - "
+							}
+							nodos[ j - 1 ].innerHTML+= numAleat; 
+						}
+					}
+				}
+			}
+			
+			window.onload = function() {
+				
+				genMultiplos_v4();
+				
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div><p>Pares:</p></div>
+		<div><p>Impares:</p></div>
+		<div><p>Múltiplos 3:</p></div>
+		<div><p>Múltiplos 4:</p></div>
+		<div><p>Múltiplos 5:</p></div>
+		
+		
+	</body>
+</html>

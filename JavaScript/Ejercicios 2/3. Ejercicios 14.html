@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 14.</title>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		
+		<script>
+			// 14.
+			// Cree una function en la cual devuelva los multiplos de 7.
+			// La function recibe el array (este debe ser numérico).
+			// Y retorna todos los elementos que sean multiplos de 7.
+			
+			function getElementsM7( arTmp ) {
+				var media;
+				var i;
+				var arElements = [];
+								
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ] % 7 == 0 ) {
+						arElements[ arElements.length ] = arTmp[ i ];
+					}					
+				}
+				
+				return arElements;
+			}
+			
+			function init() {
+				var arNumbers = [ 4, 6, 12, 24, 23, 21, 7, 1, 14 ];
+				
+				document.write ( "Los números múltiplos de 7 son: " + getElementsM7( arNumbers ) );
+			}
+			
+			init();
+		
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

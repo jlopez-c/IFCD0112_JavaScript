@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>16. Ejercicios BIS.</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>	
+			arPaises = [ "España", "Francia", "Portugal", "Italia", "Grecia", "Alemania", "Reino Unido", "Estados Unidos de America", "Canadá", "Federación Rusa", "Suiza", "Suecia", "Noruega", "Finlandia", "Belgica", "Holanda", "Republica Dominicana", "Nueva Zelanda" ];
+			
+			// 7. Escribe alternativamente cada una de las letras de cada uno de los paises en mayúsculas y minúsculas.
+			document.write( "<h3>7. Escribe alternativamente cada una de las letras de cada uno de los paises en mayúsculas y minúsculas.</h3>" );
+			
+			
+			for ( i = 0; i < arPaises.length; i++ ) {
+				for ( j = 0; j < arPaises[ i ].length; j++ ) {
+					if ( j % 2 == 0 ) {
+						document.write( arPaises[ i ].charAt( j ).toUpperCase() );
+					} else {
+						document.write( arPaises[ i ].charAt( j ).toLowerCase() );
+					}
+				}				
+			}
+			
+			document.write( "<h3>7.BIS Escribe alternativamente cada una de las letras de cada uno de los paises en mayúsculas y minúsculas.</h3>" );
+			
+			k = 0;
+			for ( i = 0; i < arPaises.length; i++ ) {
+				for ( j = 0; j < arPaises[ i ].length; j++ ) {
+					if ( k % 2 == 0 ) {
+						document.write( arPaises[ i ].charAt( j ).toUpperCase() );
+					} else {
+						document.write( arPaises[ i ].charAt( j ).toLowerCase() );
+					}
+					k++;
+				}				
+			}
+			
+			
+			// 8. ¿Cuantos paises y cuales tienen un espacio en blanco o más en su nombre?
+			document.write( "<h3>8. ¿Cuantos paises y cuales tienen un espacio en blanco o más en su nombre?</h3>" );
+			iPaises = 0;
+			for ( i = 0; i < arPaises.length; i++ ) {
+				if ( arPaises[ i ].indexOf( " " ) != -1 ) {
+					document.write( arPaises[ i ] + "<br/ >" );
+					iPaises++;
+				}
+			}
+			document.write( "Hay " + iPaises + " que contienen un espacio en blanco." );
+			
+			
+			// 9. ¿Cuál es el pais con el nombre más largo? ¿Y el más corto?
+			document.write( "<h3>9. ¿Cuál es el pais con el nombre más largo? ¿Y el más corto?</h3>" );
+			masLargo = 0;
+			masCorto = arPaises[ 0 ].length;
+
+			for ( i = 0; i < arPaises.length; i++ ) {
+				if ( arPaises[ i ].length > masLargo ) {
+					masLargo = arPaises[ i ].length;
+				} 
+				if ( arPaises[ i ].length < masCorto ) {
+					masCorto = arPaises[ i ].length;
+				} 
+			}
+			document.write( "<br/>Los paises con los nombres más largos son:<br />" );
+			for ( i = 0; i < arPaises.length; i++ ) {
+				if ( arPaises[ i ].length == masLargo ) {
+					document.write( arPaises[ i ] + "<br />" );
+				}
+			}
+			document.write( "<br/>Los paises con los nombres más cortos son:<br />" );
+			for ( i = 0; i < arPaises.length; i++ ) {
+				if ( arPaises[ i ].length == masCorto ) {
+					document.write( arPaises[ i ] + "<br />" );
+				}
+			}
+			// 10. Qué paises empiezan por la misma letra que el primer país del array arPaises.(No teclees directamente la E).
+			document.write( "<h3>10. Qué paises empiezan por la misma letra que el primer país del array arPaises.(No teclees directamente la E).</h3>" );
+			primeraLetra = arPaises[ 0 ][ 0 ]; // Es igual que arPaises[ 0 ].charAt( 0 );
+			
+			//document.write( primeraLetra );
+			
+			for ( i = 0; i < arPaises.length; i++ ) {
+				if ( primeraLetra == arPaises[ i ][ 0 ] ) {
+					document.write( arPaises[ i ] + "<br />" );
+				}
+			}
+			
+			// 11. Escribe el nombre del primer país al reves, añapsE
+			// Paso 1: bucle for. arPaises[ 0 ]
+			// Paso 2. bucle for tengo que empezar en la uñtima posicion hasta la 0.
+			document.write( "<h3>11. Escribe el nombre del primer país al reves, añapsE</h3>" );
+			for ( i = arPaises[ 0 ].length - 1; i >= 0; i-- ) {
+				document.write( arPaises[ 0 ][ i ] );
+			}
+			
+			// 12. Escribe el nombre de todos los paises al reves y con un guion entre cada uno de ellos.(sin guion final).
+			document.write( "<h3>12. Escribe el nombre de todos los paises al reves y con un guion entre cada uno de ellos.(sin guion final).</h3>" );
+			
+			bPrimeraVez = false;
+			for ( i = 0; i < arPaises.length; i++ ) {
+				if ( !bPrimeraVez ) {
+					bPrimeraVez = true;
+				} else {
+					document.write( "-" );
+				}
+				for ( j = arPaises[ i ].length - 1; j >= 0; j-- ) {
+					document.write( arPaises[ i ][ j ] );
+				}
+			}
+			// 13. Escribe el array al reves y los nombres al reves, cada uno en una línea.
+			document.write( "<h3>13. Escribe el array al reves y los nombres al reves, cada uno en una línea.</h3>" );
+			
+			bPrimeraVez = false;
+			for ( i = arPaises.length - 1; i >= 0; i-- ) {
+				if ( !bPrimeraVez ) {
+					bPrimeraVez = true;
+				} else {
+					document.write( "-" );
+				}
+				for ( j = arPaises[ i ].length - 1; j >= 0; j-- ) {
+					document.write( arPaises[ i ][ j ] );
+				}
+			}
+			// 14. Cuantas letras tienen en total todos los paises.
+			document.write( "<h3>14. Cuan	tas letras tienen en total todos los paises.</h3>" );
+			k = 0;
+			for ( i = 0; i < arPaises.length; i++ ) {
+				for ( j = 0; j < arPaises[ i ].length; j++ ) {
+					if ( arPaises[ i ][ j ] != " " ) { // No contamos los espacios en blanco.
+						k++;
+					}
+				}				
+			}
+			document.write( "Los paises tienen " + k + " letras." );
+			
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

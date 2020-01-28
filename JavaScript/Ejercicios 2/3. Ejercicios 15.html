@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 15.</title>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		
+		<script>
+			// 15.
+			// Cree una function en la cual devuelva los multiplos de otro número dado como argumento de la función.
+			// La function recibe el array (este debe ser numérico) y también el número al que tiene que ser múltiplo.
+			// Y retorna todos los elementos que sean multiplos de ese número.
+			
+			function getElementsMultiplos( arTmp, divisor ) {
+				var media;
+				var i;
+				var arElements = [];
+								
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ] % divisor == 0 ) {
+						arElements[ arElements.length ] = arTmp[ i ];
+					}					
+				}
+				
+				return arElements;
+			}
+			
+			function init() {
+				var arNumbers = [ 4, 6, 12, 24, 23, 21, 7, 1, 14 ];
+				var multiplo;
+				
+				multiplo = 7;
+				document.write ( "Los números múltiplos de " + multiplo + " son: " + getElementsMultiplos( arNumbers, multiplo ) + "<br/>" );
+				
+				multiplo = 3;
+				document.write ( "Los números múltiplos de " + multiplo + " son: " + getElementsMultiplos( arNumbers, multiplo ) );
+			}
+			
+			init();
+		
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

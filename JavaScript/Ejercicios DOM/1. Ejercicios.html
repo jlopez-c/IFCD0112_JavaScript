@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>1. Ejercicio DOM.</title>
+		<meta charset="UTF-8">
+		<style>
+			div {
+				border: 1px solid blue;
+				padding: 10px; }
+		</style>
+		<script>
+			// Con Function
+			// Escribir 100 números aleatorios entre 1 y 50.
+			// En el primer div que se escriban los pares y en el segundo los impares.
+			// Separados por un guión y sin guión final.
+			// Sin if.
+			
+			function genAleatorio( numMinimo, numMaximo ) {
+				var numAleat = Math.floor( Math.random() * ( numMaximo - numMinimo + 1 ) + numMinimo );
+				
+				return numAleat;
+			}
+			
+			function genParesImpares_v1() {
+				var i;
+				var nodos;
+				
+				nodos = document.getElementsByTagName( "div" );
+				for ( i = 0; i < 100; i++ ) {
+					numAleat = genAleatorio( 1, 50 );
+					
+					if ( numAleat % 2 == 0 ) {
+						nodos[ 0 ].innerHTML+= numAleat + " ";
+					} else {
+						nodos[ 1 ].innerHTML+= numAleat + " ";
+					}
+				}
+			}
+			
+			function genParesImpares_v2() {
+				var i, numAleat;
+				var nodos;
+				
+				nodos = document.getElementsByTagName( "div" );
+				for ( i = 0; i < 100; i++ ) {
+					numAleat = genAleatorio( 1, 50 );
+					
+					nodos[ numAleat % 2 ].innerHTML+= numAleat + " ";
+				}
+			}
+			
+			function genParesImpares_v3() {
+				var i, numAleat;
+				var nodos;
+				
+				nodos = document.getElementsByTagName( "div" );
+				
+				for ( i = 0; i < 100; i++ ) {
+					numAleat = genAleatorio( 1, 50 );
+					
+					if ( nodos[ numAleat % 2 ].innerHTML == "" ) {
+						nodos[ numAleat % 2 ].innerHTML+= numAleat;
+					} else {
+						nodos[ numAleat % 2 ].innerHTML+= " - " + numAleat;
+					}					
+				}
+			}
+			
+			function genParesImpares_v4() {
+				var i, numAleat;
+				var nodos;
+				
+				nodos = document.getElementsByTagName( "div" );
+				
+				for ( i = 0; i < 100; i++ ) {
+					numAleat = genAleatorio( 1, 50 );
+					
+					if ( nodos[ numAleat % 2 ].innerHTML != "" ) {
+						nodos[ numAleat % 2 ].innerHTML+= " - ";
+					}
+					nodos[ numAleat % 2 ].innerHTML+= numAleat;
+				}
+			}
+			
+			window.onload = function() {
+				
+				genParesImpares_v4();
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		
+	</body>
+</html>

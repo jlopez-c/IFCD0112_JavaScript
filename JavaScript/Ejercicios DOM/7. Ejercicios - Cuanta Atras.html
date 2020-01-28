@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>7. Ejercicios - Cuenta Atras</title>
+		<meta charset="UTF-8">
+		<style>			
+		</style>
+		<script>
+			var GLOBAL_idCuentaAtras;
+			
+			function cuentaAtras() {
+			
+				var nodosCuentaAtras;
+				var nodoCuentaAtras;
+				
+				nodosCuentaAtras = document.getElementsByName( "cuentaatras" );
+				nodoCuentaAtras = document.getElementById( "cuentaatras" );
+				if ( nodoCuentaAtras.innerHTML == "" ) {
+					nodoCuentaAtras.innerHTML = nodosCuentaAtras[ 0 ].value;
+				} else {
+					arTiempo = nodoCuentaAtras.innerHTML.split( ":" );
+					//
+					if ( arTiempo[ 0 ] == "00" ) {
+						if ( arTiempo[ 1 ] != "00" ) {							
+							arTiempo[ 1 ]--;
+							if ( arTiempo[ 1 ] < 10 ) {
+								arTiempo[ 1 ] = "0" + arTiempo[ 1 ];
+							}
+						}
+					} else {
+						if ( arTiempo[ 1 ] == "00" ) {
+							
+							arTiempo[ 1 ] = "59";
+							arTiempo[ 0 ]--;
+							if ( arTiempo[ 0 ] < 10 ) {
+								arTiempo[ 0 ] = "0" + arTiempo[ 0 ];
+							}
+						} else {
+							
+							arTiempo[ 1 ]--;
+							if ( arTiempo[ 1 ] < 10 ) {
+								arTiempo[ 1 ] = "0" + arTiempo[ 1 ];
+							}
+						}
+					}
+					
+					//alert ( arTiempo[ 0 ] + ":" + arTiempo[ 1 ] );
+					nodoCuentaAtras.innerHTML = arTiempo[ 0 ] + ":" + arTiempo[ 1 ];
+					
+					if ( nodoCuentaAtras.innerHTML == "00:00" ) {
+						clearInterval( GLOBAL_idCuentaAtras );
+					}
+				}
+			}
+			
+			function activar() {
+				var nodosActivar;
+				nodosActivar = document.getElementsByName( "activar" );				
+				
+				if ( nodosActivar[ 0 ].checked ) {
+					// Activar la cuenta atras.
+					GLOBAL_idCuentaAtras = setInterval( "cuentaAtras()", 1000 );
+					
+					// Teneis que pensar.
+				
+				} else {
+					// Desactivar el reloj.
+					clearInterval( GLOBAL_idCuentaAtras );
+					
+				}
+			}
+			
+			function chgVelocidad() {
+				var nodosVel;
+				nodosVel = document.getElementsByName( "velocidad" );
+				alert( nodosVel[ 0 ].value );
+			}
+
+			window.onload = function() {
+				var nodosActivar, nodosVel;
+				
+				nodosActivar = document.getElementsByName( "activar" );
+				
+				nodosActivar[ 0 ].onclick = activar;
+				
+				nodosVel = document.getElementsByName( "velocidad" );
+				
+				nodosVel[ 0 ].onchange = chgVelocidad;
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="cuentaatras"></div>
+		<p>
+			<label for="comienzoatras">Cuenta Atras:</label>
+			<input name="cuentaatras" type="text" size="10" placeholder="mm:ss" />
+			<input name="activar" type="checkbox" />
+		</p>
+		<input name="velocidad" type="text" value="1" />
+
+
+	</body>
+</html>

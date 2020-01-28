@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>4. Ejercicios 6.</title>
+		
+		<script>
+			// 6. 
+			// Escriba el array por pantalla pero como se escriben los nombres. 
+			// O sea la primera letra de cada nombre en mayúsculas.
+			// Ana
+			// Carlos
+			// Ana Isabel
+			
+			function writeArrayWSaltosLinea( arTmp ) {
+				var i;
+				var bPrimeraVez = false;
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( !bPrimeraVez ) {
+						bPrimeraVez = true;
+					} else {
+						document.write( "<br />" );
+					}
+					document.write( arTmp[ i ] );
+				}
+				
+				return true;
+			}
+			
+			// Tratando cada nombre en una posición de un array
+			function writeArrayFirstLetterUpperWSplit( arTmp ) {
+				var i, j, k;
+				var bPrimeraVez = false;
+				var nameConv;
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					// cada uno de los nombres en las posiciones de arTmpName
+					arTmpName = arTmp[ i ].split( " " );
+					
+					for ( j = 0; j < arTmpName.length; j++ ) { // recorro cada uno de los nombres dentro de cada una de las posiciones.
+						for ( k = 0; k < arTmpName[ j ].length; k++ ) { // Recorro cada una de las letras.
+							if ( k == 0 ) {
+								nameConv = arTmpName[ j ][ 0 ].toUpperCase();
+							} else {
+								nameConv+= arTmpName[ j ][ k ].toLowerCase();
+							}
+						}
+						arTmpName[ j ] = nameConv;
+					}
+					arTmp[ i ] = arTmpName.join( " " );
+					
+				}
+				
+				return arTmp;
+			}
+			
+			// Tratando cada nombre con indexOF
+			function writeArrayFirstLetterUpper( arTmp ) {
+				var i, k;
+				var bPrimeraVez = false;
+				var nameConv;
+				
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					nameConv = "";
+					for ( k = 0; k < arTmp[ i ].length; k++ ) { // Recorro cada una de las letras de los nombre.
+						if ( k == 0 || letterAnt == " " ) {
+							nameConv+= arTmp[ i ][ k ].toUpperCase();
+						} else {
+							nameConv+= arTmp[ i ][ k ].toLowerCase();
+						}
+						letterAnt = arTmp[ i ][ k ];
+					}		
+					
+					arTmp[ i ] = nameConv;
+				}
+				
+				return arTmp;
+			}
+			
+			function init() {
+				var arNombresConv;
+				
+				var arNombres = [ "LUISA", "EVA", "ANA", "ANA MARÍA", "JUAN", "JOSÉ", "JOSÉ MARÍA", "LUIS", "OLGA", "RUTH", "EVA", "JUAN", "LUIS", "PEPE", "MARÍA", "MARIO", "ROBERTO", "ALBERTO", "EVA MARÍA", "OLGA", "ELENA", "MARÍA ELENA TERESA" ];
+				
+				arNombresConv = writeArrayFirstLetterUpperWSplit( arNombres );
+				writeArrayWSaltosLinea( arNombresConv );
+				document.write( "<br/>" );
+				arNombresConv = writeArrayFirstLetterUpper( arNombres );
+				writeArrayWSaltosLinea( arNombresConv );
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

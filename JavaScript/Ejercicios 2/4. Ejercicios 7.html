@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>4. Ejercicios 7.</title>
+		
+		<script>
+			// 7.
+			// Muestre por pantalla el primer nombre repetido.
+			
+			function firstNameRep( arTmp ) {
+				var i;
+				var bEncontrado = false;
+				var posRepetido; // Para guardar la posición del primer nombre repetido.
+				var nomRepetido; // Utilizada para enviar el nombre Repetido o false si no se encuentra.
+				// PREGUNTAR CUANDO SE LEA SI NO SE ENTIENDE.
+				// SE PODRÍA HABER ENVIADO LA VARIABLE nomRepetido VACIA PERO MUCHAS FUNCIONES ENVIAN FALSE.
+				
+				posRepetido = -1;
+				for ( i = 0; i < arTmp.length && !bEncontrado; i++ ) {
+					for ( j = i + 1; j < arTmp.length && !bEncontrado; j++ ) {
+						if ( arTmp[ i ] == arTmp[ j ] ) {
+							bEncontrado = true;
+							posRepetido = i;
+						}
+					}
+				}
+				if ( bEncontrado ) {
+					nomRepetido = arTmp[ posRepetido ];
+				} else {
+					nomRepetido = false;
+				}
+				
+				return nomRepetido;
+			}
+			
+			
+			
+			
+			function init() {
+				var nomRepetido;
+				
+				var arNombres = [ "LUISA", "EVAa", "ANA", "ANA MARÍA", "JUANa", "JOSÉ", "JOSÉ MARÍA", "LUIS", "OLGA", "RUTH", "EVA", "JUAN", "LUISi", "PEPE", "MARÍA", "MARIO", "ROBERTO", "ALBERTO", "EVA MARÍA", "OLGA María", "ELENA", "MARÍA ELENA TERESA" ];
+				
+				nomRepetido = firstNameRep( arNombres );
+				if ( nomRepetido != false ) {
+					document.write( "El primer nombre repetido es: " + nomRepetido + "<br/>" );
+				} else {
+					document.write( "No existe ningún nombre repetido." );
+				}
+				
+			}
+			
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

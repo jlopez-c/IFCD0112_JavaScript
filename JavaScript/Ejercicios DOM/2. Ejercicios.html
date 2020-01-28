@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>2. Ejercicio DOM.</title>
+		<meta charset="UTF-8">
+		<style>
+			div {
+				border: 1px solid blue;
+				padding: 10px; }
+		</style>
+		<script>
+			// Con Function
+			// Escribir 50 números aleatorios entre 1 y 100.
+			// En el div 1 -- Se escriben los pares.
+			// En el div 2 -- Se escriben los impares.
+			// En el div 3 -- Se escriben los multiplos de 3.
+			// En el div 4 -- Se escriben los múltiplos de 4.
+			// En el div 5 -- Se escriben los múltiplos de 5.
+			
+			// Lo de los guiones tambien.
+			
+			function genAleatorio( numMinimo, numMaximo ) {
+				var numAleat = Math.floor( Math.random() * ( numMaximo - numMinimo + 1 ) + numMinimo );
+				
+				return numAleat;
+			}
+			
+			function genMultiplos_v1() {
+				var i, numAleat;
+				var nodos;
+				
+				nodos = document.getElementsByTagName( "div" );
+				
+				for ( i = 1; i < 51; i++ ) {
+					numAleat = genAleatorio( 1, 100 );
+					
+					// Para escribir en el nodo 0 o en el nodo 1.( par e impar ).
+					nodos[ numAleat % 2 ].innerHTML+= numAleat + " "; 
+					
+					if ( numAleat % 3 == 0 ) {
+						// Escribir en el nodo 2 el numAleat.
+						nodos[ 2 ].innerHTML+= numAleat + " "; 
+					}
+					if ( numAleat % 4 == 0 ) {
+						// Escribir en el nodo 3 el numAleat.
+						nodos[ 3 ].innerHTML+= numAleat + " "; 
+					}
+					if ( numAleat % 5 == 0 ) {
+						// Escribir en el nodo 4 el numAleat.
+						nodos[ 4 ].innerHTML+= numAleat + " "; 
+					}
+				}
+			}
+			
+			function genMultiplos_v2() {
+				var i, numAleat;
+				var nodos;
+				
+				nodos = document.getElementsByTagName( "div" );
+				
+				for ( i = 1; i < 51; i++ ) {
+					numAleat = genAleatorio( 1, 100 );
+					
+					// Para escribir en el nodo 0 o en el nodo 1.( par e impar ).
+					if ( nodos[ numAleat % 2 ].innerHTML != "" ) {
+						nodos[ numAleat % 2 ].innerHTML+= " - "
+					}
+					nodos[ numAleat % 2 ].innerHTML+= numAleat; 
+					
+					if ( numAleat % 3 == 0 ) {
+						// Escribir en el nodo 2 el numAleat.
+						nodos[ 2 ].innerHTML+= numAleat + " "; 
+					}
+					if ( numAleat % 4 == 0 ) {
+						// Escribir en el nodo 3 el numAleat.
+						nodos[ 3 ].innerHTML+= numAleat + " "; 
+					}
+					if ( numAleat % 5 == 0 ) {
+						// Escribir en el nodo 4 el numAleat.
+						nodos[ 4 ].innerHTML+= numAleat + " "; 
+					}
+				}
+			}
+			
+			function genMultiplos_v3() {
+				var i, numAleat;
+				var nodos;
+				
+				nodos = document.getElementsByTagName( "div" );
+				
+				for ( i = 1; i < 51; i++ ) {
+					numAleat = genAleatorio( 1, 100 );
+					
+					// Para escribir en el nodo 0 o en el nodo 1.( par e impar ).
+					if ( nodos[ numAleat % 2 ].innerHTML != "" ) {
+						nodos[ numAleat % 2 ].innerHTML+= " - "
+					}
+					nodos[ numAleat % 2 ].innerHTML+= numAleat; 
+					
+					for ( j = 3; j < 6; j++ ) {
+						if ( numAleat % j == 0 ) {
+							// Escribir en el nodo j el numAleat.
+							if ( nodos[ j - 1 ].innerHTML != "" ) {
+								nodos[ j - 1 ].innerHTML+= " - "
+							}
+							nodos[ j - 1 ].innerHTML+= numAleat; 
+						}
+					}
+				}
+			}
+			
+			window.onload = function() {
+				
+				genMultiplos_v3();
+				
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		
+		
+	</body>
+</html>

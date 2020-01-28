@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 22.</title>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		<script>
+			// 22. 
+			// Cree una función en la cual pida al usuario multiplicaciones o suma entre números del 1 al 20
+			// Por ejemplo, 3 x 15 = ?? o 7 + 2 = ??
+			// Pero antes debemos de preguntar al usuario cuantas operaciones quiere realizar.
+			// El resto de la lógica es igual que el anterior.
+			
+			function genMultOrSums( numOperaciones ) {
+				var factor1, factor2, resUsuario;
+				var resCorrecto;
+				var sMensaje = "";
+				var i = 0; // Para contar operaciones del usuario.
+				var bRetorno; // Uilizada para enviar true( todas las operacioens OK ) o false (fallo alguna y se sale).
+				
+				do {
+					factor1 = genAleatorio( 1, 10 );
+					operador = genAleatorio( 0, 1 );
+					factor2 = genAleatorio( 1, 10 );
+					
+					switch ( operador ) {
+						case 0: // multiplicacion.
+							sOperador = " x ";
+							resCorrecto = factor1 * factor2;
+						break;
+						case 1: // suma.
+							sOperador = " + ";
+							resCorrecto = factor1 + factor2;
+						break;
+					}
+					
+					resUsuario = prompt( sMensaje + factor1 + sOperador + factor2 + " = " );
+					if ( resUsuario == resCorrecto ) {
+						sMensaje = "Correcto. Sigue.\n";
+					}
+					i++;
+				} while ( resUsuario == resCorrecto && i != numOperaciones );
+				
+				if ( resUsuario == resCorrecto ) {
+					bRetorno = true;
+				} else {
+					bRetorno = false;
+				}
+				
+				return bRetorno;
+			}
+			
+			function init() {
+				var bResultado;
+				var numOperaciones;
+				
+				numOperaciones = prompt( "¿Cuántas operaciones quieres realizar?" );
+				bResultado = genMultOrSums( numOperaciones );				
+				if ( bResultado ) {
+					document.write( "Genial, has acertado las " + numOperaciones + " operaciones." );
+				} else {
+					document.write( "Has fallado, el juego se acabo" );
+				}
+			}
+			
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

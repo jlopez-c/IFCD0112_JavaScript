@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>4. Ejercicios 2.</title>
+		<style>
+			span.compuesto {
+				color: green; }
+				
+			span.nocompuesto {
+				color: blue; }
+		</style>
+		<script>
+			// 2. 
+			// Escriba el array por pantalla con saltos de línea distinguiendo cual es compuesto y cual no.
+			// Ejemplo:
+			// ANA -- NO COMPUESTO
+			// CARLOS -- NO COMPUESTO.
+			// ANA ISABEL -- COMPUESTO.
+			
+			function writeArrayCompuesto( arTmp ) {
+				var i;
+				var bPrimeraVez = false;
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( !bPrimeraVez ) {
+						bPrimeraVez = true;
+					} else {
+						document.write( "<br />" );
+					}
+					
+					if ( arTmp[ i ].indexOf( " " ) != -1 ) {
+						document.write( "<span class='compuesto'>" + arTmp[ i ] + " COMPUESTO</span>" );
+					} else {	
+						document.write( "<span class='nocompuesto'>" + arTmp[ i ] + " NO COMPUESTO</span>" );
+					}
+				}
+				
+				return true;
+			}
+			
+			function init() {
+				var arNombres = [ "LUIS", "EVA", "ANA", "ANA MARÍA", "JUAN", "JOSÉ", "JOSÉ MARÍA", "LUIS", "OLGA", "RUTH", "EVA", "JUAN", "LUIS", "PEPE", "MARÍA", "MARIO", "ROBERTO", "ALBERTO", "EVA MARÍA", "OLGA", "ELENA", "MARÍA ELENA" ];
+				
+				
+				writeArrayCompuesto( arNombres );
+				
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

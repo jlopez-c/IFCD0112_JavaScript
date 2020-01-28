@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>22. Slice</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>
+			i = 5;
+			j = i;
+			
+			i = 3;
+			
+			document.write ( i ); // 3
+			document.write ( j ); // 5
+			document.write ( "<br/>" );
+		
+			arNumeros = [ 3, 4, 5, 7 ];
+			
+			arNumbers = arNumeros;
+			
+			arNumeros[ 1 ] = 2;
+			
+			document.write ( arNumeros ); // 3, 2, 5, 7
+			document.write ( "<br/>" );
+			document.write ( arNumbers ); // 3, 2, 5, 7
+			document.write ( "<br/>" );
+			
+			arNumbers[ 1 ] = 4;
+			
+			document.write ( arNumeros ); // 3, 4, 5, 7
+			document.write ( "<br/>" );
+			document.write ( arNumbers ); // 3, 4, 5, 7
+			document.write ( "<br/>" );
+			
+			arNumbers = arNumeros.slice();
+			arNumbers[ 1 ] = 2;
+			document.write ( arNumeros ); // 3, 4, 5, 7
+			document.write ( "<br/>" );
+			document.write ( arNumbers ); // 3, 4, 5, 7
+			document.write ( "<br/>" );
+			
+			// rarezas.
+			
+			arT = [ 3, 5, 6 ];
+			arF = [ 2, 1, 8 ];
+			
+			arT = arF;
+			document.write ( "arT = " + arT );
+			document.write ( "<br/>" );
+			arT[ 2 ] = 1;
+			document.write ( "arF = " + arF );
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

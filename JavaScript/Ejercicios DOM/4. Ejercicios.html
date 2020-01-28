@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>4. Ejercicio DOM.</title>
+		<meta charset="UTF-8">
+		<style>
+			div {
+				border: 1px solid blue;
+				padding: 10px; }
+		</style>
+		<script>
+			// Con Function
+			// Escribir números aleatorios entre 1 y 10000.
+			// Pero solo si el número anterior es inferior.
+			
+			// con guiones.			
+			
+			function genAleatorio( numMinimo, numMaximo ) {
+				var numAleat = Math.floor( Math.random() * ( numMaximo - numMinimo + 1 ) + numMinimo );
+				
+				return numAleat;
+			}
+			
+			function genAnterior_v1() {
+				
+				// Llamar a la funcion genAleatorio entre 1 10000
+				// Guardar el numero generado en numAleat
+				// Controlar si es la primeraVez con innerHTML == ""
+				// Si lo es escribo el numAleat en el nodo.
+				// Si numAleatAnt < numAleat 
+				//   Escribo en el nodo el numAleat.
+				//   numAleatAnt = numAleat
+				
+				var numAleat;
+				var numAleatAnt = 0;
+				var nodos = document.getElementsByTagName( "div" );
+				do {
+					numAleat = genAleatorio( 1, 10000 );
+					if ( nodos[ 0 ].innerHTML == "" ) {
+						nodos[ 0 ].innerHTML+= numAleat;
+						numAleatAnt = numAleat;
+					} else {
+						if ( numAleatAnt < numAleat ) {
+							nodos[ 0 ].innerHTML+= " - " + numAleat;
+							numAleatAnt = numAleat;
+						}
+					}				
+				} while ( numAleat != 10000 );
+			}
+			
+			function genAnterior_v2() {
+				
+				// Llamar a la funcion genAleatorio entre 1 10000
+				// Guardar el numero generado en numAleat
+				// Controlar si es la primeraVez con innerHTML == ""
+				// Si lo es escribo el numAleat en el nodo.
+				// Si numAleatAnt < numAleat 
+				//   Escribo en el nodo el numAleat.
+				//   numAleatAnt = numAleat
+				
+				var numAleat;
+				var numAleatAnt = 0;
+				var nodos = document.getElementsByTagName( "div" );
+				do {
+					numAleat = genAleatorio( 1, 10000 );
+					
+					// Ahorramos la duplicación de la línea numAleatAnt = numAleat;
+					// cambiado el orden de los if.
+					if ( numAleatAnt < numAleat ) {							
+						if ( nodos[ 0 ].innerHTML != "" ) {
+							nodos[ 0 ].innerHTML+= " - ";
+						}
+						nodos[ 0 ].innerHTML+= numAleat;
+						numAleatAnt = numAleat;
+					}
+				
+				} while ( numAleat != 10000 );
+			}
+			
+			window.onload = function() {
+				genAnterior_v1();				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div></div>
+		
+		
+		
+		
+	</body>
+</html>

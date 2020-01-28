@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>4. Ejercicios 13.</title>
+		
+		<script>
+			// 12. 
+			// Averigüe el array de nombres los nombres que contengan un determinado texto 
+			// que enviamos a la función. También el array se lo enviamos a la función.
+			// La función nos retorna un array con los nombres que contengan ese texto.
+			
+			// 13.
+			// Igual que el anterior pero ahora los que no lo contienen.
+			
+			function isInArray( arTmp, busqueda ) {
+				var bEsta = false;
+				var i;
+				
+				for ( i = 0; i < arTmp.length && !bEsta; i++ ) {
+					if ( arTmp[ i ] == busqueda ) {
+						bEsta = true;
+					}
+				}
+				return bEsta;
+			}
+			
+			function srhTextArray( arTmp, texto ) {
+				var i;
+				var arRetorno = [];
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ].indexOf( texto ) == -1 ) {
+						if ( !isInArray( arRetorno, arTmp[ i ] ) ) {
+							arRetorno[ arRetorno.length ] = arTmp[ i ];
+						}
+					}
+				}
+				
+				return arRetorno;
+				
+			}			
+			
+			function init() {
+				var arNombres = [ "LUIS", "EVA1", "ANA", "ANA MARÍA", "JUANa", "JOSÉ", "JOSÉ MARÍA", "LUISaq", "OLGA", "RUTH", "EVA", "JUAN", "LUIS", "PEPE", "MARÍA", "MARIO", "ROBERTO", "ALBERTO", "EVA MARÍA", "OLGA", "ELENA", "MARÍA ELENA TERESA", "LUIS", "LUIS", "OLGA" ];
+				var text = "LU";
+				var arNombresWText = [];
+				
+				arNombresWText = srhTextArray( arNombres, text ) ;
+				
+				if ( arNombresWText.length != 0 ) {
+					document.write( "Los nombres con el texto '" + text + "' son: " + arNombresWText );
+				} else {
+					document.write( "No hay ningún nombre repetido." );
+				}
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>16. Ejercicios BIS BIS.</title>
+		<meta charset="UTF-8">
+		<style>			
+		</style>
+		<script>
+			console.log( "Inicio" );
+			arPaises = [ "España", "Francia", "Portugal", "Italia", "Grecia", "Alemania", "Reino Unido", "Estados Unidos de America", "Canadá", "Federación Rusa", "Suiza", "Suecia", "Noruega", "Finlandia", "Belgica", "Holanda", "La Republica Dominicana", "Nueva Zelanda", "Republica de Bolivia", "Republica de Colombia", "Chile", "Republica del congo" ];
+			console.log( "arPaises = " ); 
+			console.log( arPaises );
+			// 15. Sustituye la palabra Republica por República en cada uno de los paises que la contengan.
+			document.write( "<h3>15. Sustituye la palabra Republica por República en cada uno de los paises que la contengan.</h3>" );
+			palSustituir = "Republica";
+			palSustituta = "República";
+			for ( i = 0; i < arPaises.length; i++ ) {
+				pos = arPaises[ i ].indexOf( palSustituir );
+				if ( pos != -1 ) {
+					paisNuevo = arPaises[ i ].substring( 0, pos );
+					paisNuevo+= palSustituta;
+					paisNuevo+= arPaises[ i ].substring( pos + palSustituir.length );
+					
+					arPaises[ i ] = paisNuevo;
+				}	
+			}
+			document.write ( arPaises );
+			
+			cadena = "JavaScript (abreviado comúnmente JS) es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se define como orientado a objetos,​ basado en prototipos, imperativo, débilmente tipado y dinámico. Se utiliza principalmente en su forma del lado del cliente (client-side), implementado como parte de un navegador web permitiendo mejoras en la interfaz de usuario y páginas web dinámicas​ aunque existe una forma de JavaScript del lado del servidor (Server-side JavaScript o SSJS). Su uso en aplicaciones externas a la web, por ejemplo en documentos PDF, aplicaciones de escritorio (mayoritariamente widgets) es también significativo. Desde el 2012, todos los navegadores modernos soportan completamente ECMAScript 5.1, una versión de javascript. Los navegadores más antiguos soportan por lo menos ECMAScript 3. La sexta edición se liberó en julio del 2015.";
+			
+			// 16. Escribe el siguiente texto cambiando las letras a por e.
+			document.write( "<h3>16. Escribe el siguiente texto cambiando las letras a por e.</h3>" );
+			for ( i = 0 ; i < cadena.length; i++ ) {
+				if ( cadena[ i ] == "a" ) { // Cadena[ i ] es cada uno de los caracteres.
+					document.write( "e" );
+				} else {
+					document.write( cadena[ i ] );
+				}
+			}
+			document.write( "<h3>16. BIS.Escribe el siguiente texto cambiando las letras a por e.</h3>" );
+			cadenaTmp = "";
+			for ( i = 0 ; i < cadena.length; i++ ) {
+				if ( cadena[ i ] == "a" ) { // Cadena[ i ] es cada uno de los caracteres.
+					cadenaTmp+= "e"; // cadenaTmp = cadenaTmp + "e";
+				} else {
+					cadenaTmp+= cadena[ i ]; // cadenaTmp = cadenaTmp + cadena[ i ];
+				}
+			}
+			cadena = cadenaTmp;
+			document.write( cadena );
+			
+			
+			// 17. Escribe el siguiente texto cambiando las letras a por e y las e por a.
+			cadena = "JavaScript (abreviado comúnmente JS) es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se define como orientado a objetos,​ basado en prototipos, imperativo, débilmente tipado y dinámico. Se utiliza principalmente en su forma del lado del cliente (client-side), implementado como parte de un navegador web permitiendo mejoras en la interfaz de usuario y páginas web dinámicas​ aunque existe una forma de JavaScript del lado del servidor (Server-side JavaScript o SSJS). Su uso en aplicaciones externas a la web, por ejemplo en documentos PDF, aplicaciones de escritorio (mayoritariamente widgets) es también significativo. Desde el 2012, todos los navegadores modernos soportan completamente ECMAScript 5.1, una versión de javascript. Los navegadores más antiguos soportan por lo menos ECMAScript 3. La sexta edición se liberó en julio del 2015.";
+			document.write( "<h3>17. Escribe el siguiente texto cambiando las letras a por e y las e por a.</h3>" );
+			cadenaTmp = "";
+			for ( i = 0 ; i < cadena.length; i++ ) {
+				if ( cadena[ i ] == "a" ) { // Cadena[ i ] es cada uno de los caracteres.
+					cadenaTmp+= "e";
+				} else if ( cadena[ i ] == "e" ) {
+					cadenaTmp+= "a";
+				} else {
+					cadenaTmp+= cadena[ i ]; // cadenaTmp = cadenaTmp + cadena[ i ];
+				}
+			}
+			cadena = cadenaTmp;
+			document.write( cadena );
+			
+			// 18. Y donde haya un espacio en blanco por el anterior caracter (no hay que escribir el espacio en blanco).
+			cadena = "JavaScript  (abreviado   comúnmente JS) es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se define como orientado a objetos,​ basado en prototipos, imperativo, débilmente tipado y dinámico. Se utiliza principalmente en su forma del lado del cliente (client-side), implementado como parte de un navegador web permitiendo mejoras en la interfaz de usuario y páginas web dinámicas​ aunque existe una forma de JavaScript del lado del servidor (Server-side JavaScript o SSJS). Su uso en aplicaciones externas a la web, por ejemplo en documentos PDF, aplicaciones de escritorio (mayoritariamente widgets) es también significativo. Desde el 2012, todos los navegadores modernos soportan completamente ECMAScript 5.1, una versión de javascript. Los navegadores más antiguos soportan por lo menos ECMAScript 3. La sexta edición se liberó en julio del 2015.";
+			document.write( "<h3>18. Y donde haya un espacio en blanco por el anterior caracter (no hay que escribir el espacio en blanco).</h3>" );
+			cadenaTmp = "";
+			for ( i = 0 ; i < cadena.length; i++ ) {
+				if ( cadena[ i ] == " " ) { // Cadena[ i ] es cada uno de los caracteres.
+					cadenaTmp+= carAnt;
+				} else {
+					cadenaTmp+= cadena[ i ]; // cadenaTmp = cadenaTmp + cadena[ i ];
+					carAnt = cadena[ i ];
+				}
+				
+			}
+			cadena = cadenaTmp;
+			document.write( cadena );
+			
+			
+			// 19. Escribe el texto, pero que escriba cada palabra alternativamente al reves o sea, una normal y otra al reves.
+			// Con split es fácil.
+			cadena = "JavaScript (abreviado comúnmente JS) es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se define como orientado a objetos,​ basado en prototipos, imperativo, débilmente tipado y dinámico. Se utiliza principalmente en su forma del lado del cliente (client-side), implementado como parte de un navegador web permitiendo mejoras en la interfaz de usuario y páginas web dinámicas​ aunque existe una forma de JavaScript del lado del servidor (Server-side JavaScript o SSJS). Su uso en aplicaciones externas a la web, por ejemplo en documentos PDF, aplicaciones de escritorio (mayoritariamente widgets) es también significativo. Desde el 2012, todos los navegadores modernos soportan completamente ECMAScript 5.1, una versión de javascript. Los navegadores más antiguos soportan por lo menos ECMAScript 3. La sexta edición se liberó en julio del 2015.";
+			document.write( "<h3>19. Escribe el texto, pero que escriba cada palabra alternativamente al reves o sea, una normal y otra al reves.</h3>" );
+			arCadena = cadena.split( " " );
+		
+			for ( i = 0; i < arCadena.length; i++ ) {
+				if ( i % 2 == 0 ) {
+					for ( j = arCadena[ i ].length - 1; j >= 0; j-- ) {
+						document.write( arCadena[ i ][ j ] );
+					}
+				} else {
+					document.write( arCadena[ i ] );
+				}
+				document.write( " " );
+			}
+			
+			// 20. Escribe el texto, pero que la primera palabra aparezca en Mayúsculas la siguiente en minusculas, la siguiente con x(misma logitud que la palabra) y la siguiente al reves. Así hasta acabar el número de palabras.
+			
+			document.write( "<h3>20. Escribe el texto, pero que la primera palabra aparezca en Mayúsculas la siguiente en minusculas, la siguiente con x(misma logitud que la palabra) y la siguiente al reves. Así hasta acabar el número de palabras.</h3>" );
+			arCadena = cadena.split( " " );
+		
+			for ( i = 0; i < arCadena.length; i++ ) {
+				if ( i % 4 == 0 ) {
+					// A Mayúsculas
+					document.write( arCadena[ i ].toUpperCase() );
+				} else if ( i % 4 == 1 ) {
+					// A minusculas
+					document.write( arCadena[ i ].toLowerCase() );
+				} else if ( i % 4 == 2 ) {
+					// Con x
+					for ( j = 0; j < arCadena[ i ].length; j++ ) {
+						document.write( "x" );
+					}
+				} else {
+					// Al reves. 
+					for ( j = arCadena[ i ].length - 1; j >= 0; j-- ) {
+						document.write( arCadena[ i ][ j ] );
+					}
+				}
+			}
+			
+			// 21. Escribir el texto con las siguiente posibilidades. aleatoriamente.
+			// a) en Mayúsculas.
+			// b) en Minúsculas.
+			// c) sustituyendo sus letras por x( mismas x que letras tenga. y tb al revés.
+			// d) Al revés.
+			// e) Cambiando las vocales por #
+			// f) Cambiado las consonantes por $.
+			document.write( "<h3>21. Escribir el texto con las siguiente posibilidades. aleatoriamente.</h3>" );
+			arCadena = cadena.split( " " );
+		
+			for ( i = 0; i < arCadena.length; i++ ) {
+				numMin = 0;
+				numMax = 5;
+				numAleat = Math.floor( Math.random() * ( numMax - numMin + 1 ) + numMin );
+				if ( numAleat == 0 ) {
+					// A Mayúsculas
+					document.write( arCadena[ i ].toUpperCase() );
+				} else if ( numAleat == 1 ) {
+					// A minusculas
+					document.write( arCadena[ i ].toLowerCase() );
+				} else if ( numAleat == 2 ) {
+					// Con x
+					for ( j = 0; j < arCadena[ i ].length; j++ ) {
+						document.write( "x" );
+					}
+				} else if ( numAleat == 3 ) {
+					// Al reves. 
+					for ( j = arCadena[ i ].length - 1; j >= 0; j-- ) {
+						document.write( arCadena[ i ][ j ] );
+					}
+				} else if ( numAleat == 4 ) {
+					// Vocales.					
+					for ( j = 0; j < arCadena[ i ].length; j++ ) {
+						if ( arCadena[ i ][ j ] == "a" || 
+							 arCadena[ i ][ j ] == "e" ||
+							 arCadena[ i ][ j ] == "i" ||
+							 arCadena[ i ][ j ] == "o" ||
+							 arCadena[ i ][ j ] == "u" ) {
+								document.write( "#" );
+						}
+					}
+				} else {
+					// Consonantes.
+					for ( j = 0; j < arCadena[ i ].length; j++ ) {
+						if ( arCadena[ i ][ j ] != "a" && 
+							 arCadena[ i ][ j ] != "e" &&
+							 arCadena[ i ][ j ] != "i" &&
+							 arCadena[ i ][ j ] != "o" &&
+							 arCadena[ i ][ j ] != "u" ) {
+								document.write( "$" );
+						}
+					}
+				}
+				document.write( " " );
+			}
+			
+			document.write( "<h3>21. Escribir el texto con las siguiente posibilidades. aleatoriamente.</h3>" );
+			arCadena = cadena.split( " " );
+		
+			for ( i = 0; i < arCadena.length; i++ ) {
+				numMin = 0;
+				numMax = 5;
+				numAleat = Math.floor( Math.random() * ( numMax - numMin + 1 ) + numMin );
+				switch ( numAleat ) {
+					case 0:
+						// A Mayúsculas
+						document.write( arCadena[ i ].toUpperCase() );
+					break;
+					case "1":
+					case 1:
+						// A minusculas
+						document.write( arCadena[ i ].toLowerCase() );
+					break;
+					case 2:
+						// Con x
+						for ( j = 0; j < arCadena[ i ].length; j++ ) {
+							document.write( "x" );
+						}
+					break;
+					case 3:
+						// Al reves. 
+						for ( j = arCadena[ i ].length - 1; j >= 0; j-- ) {
+							document.write( arCadena[ i ][ j ] );
+						}
+					break;
+					case 4:
+						// Vocales.					
+						for ( j = 0; j < arCadena[ i ].length; j++ ) {
+							if ( arCadena[ i ][ j ] == "a" || 
+								 arCadena[ i ][ j ] == "e" ||
+								 arCadena[ i ][ j ] == "i" ||
+								 arCadena[ i ][ j ] == "o" ||
+								 arCadena[ i ][ j ] == "u" ) {
+									document.write( "#" );
+							}
+						}
+					break;
+					case 5:
+						// Consonantes.
+						for ( j = 0; j < arCadena[ i ].length; j++ ) {
+							if ( arCadena[ i ][ j ] != "a" && 
+								 arCadena[ i ][ j ] != "e" &&
+								 arCadena[ i ][ j ] != "i" &&
+								 arCadena[ i ][ j ] != "o" &&
+								 arCadena[ i ][ j ] != "u" ) {
+									document.write( "$" );
+							}
+						}
+					break;
+					default:
+						document.write( "Increible si se ejecuta." );
+					break;
+				}
+				document.write( " " );
+			}
+			console.log( "Fin" );
+		</script>
+	</head>
+	<body>
+		
+		
+	</body>
+</html>

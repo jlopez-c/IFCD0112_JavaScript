@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>8. DOM</title>
+		<meta charset="UTF-8">
+		
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px; }
+				
+			div.caja {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 30px;
+				width: 100px;
+				height: 100px;
+				background-color: gray;
+				border-radius: 50%; }
+				
+			div.rojo {
+				border: 1px solid red;
+				color: blue; }
+				
+			div.verde {
+				border: 1px solid green; }
+				
+			div.azul {
+				background-color: blue;
+				color: red; }
+				
+		</style>
+		<script>
+			
+			window.onload = function() {
+				var nodos = document.getElementsByClassName( "caja" );
+				
+				nodos[ 0 ].classList.add( "verde" );
+
+				nodos[ 1 ].classList.remove( "rojo" );
+
+				nodos[ 2 ].classList.toggle( "azul" );
+
+				for ( i = 0; i < nodos.length; i++ ) {
+					if ( nodos[ i ].classList.contains( "azul" ) ) {
+						nodos[ i ].innerHTML+= " a";
+					}
+				}
+				
+				alert( "Número de nodos : " + nodos[ 3 ].classList.length );
+				
+				for ( i = 0; i < nodos[ 3 ].classList.length; i++ ) {
+					alert( nodos[ 3 ].classList.item( i ) );
+				}
+				
+			}			
+			
+		</script>
+	</head>
+	<body>
+		<div class="caja rojo">1</div>
+		<div class="caja rojo">2</div>
+		<div class="caja rojo">3</div>
+		<div class="caja rojo azul">4</div>
+			
+	</body>
+	
+</html>

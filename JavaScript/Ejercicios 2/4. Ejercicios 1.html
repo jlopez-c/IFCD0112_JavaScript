@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>4. Ejercicios 1.</title>
+		
+		<script>
+			// 1.
+			// Escriba el array por pantalla con saltos de línea entre cada uno de los nombres.	
+			
+			function writeArrayWSaltosLinea( arTmp ) {
+				var i;
+				var bPrimeraVez = false;
+				
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( !bPrimeraVez ) {
+						bPrimeraVez = true;
+					} else {
+						document.write( "<br />" );
+					}
+					document.write( arTmp[ i ] );
+				}
+				
+				return true;
+			}
+			
+			function init() {
+				var arNombres = [ "LUIS", "EVA", "ANA", "ANA MARÍA", "JUAN", "JOSÉ", "JOSÉ MARÍA", "LUIS", "OLGA", "RUTH", "EVA", "JUAN", "LUIS", "PEPE", "MARÍA", "MARIO", "ROBERTO", "ALBERTO", "EVA MARÍA", "OLGA", "ELENA", "MARÍA ELENA" ];
+				
+				
+				writeArrayWSaltosLinea( arNombres );
+				
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

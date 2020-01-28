@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 21.</title>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		<script>
+			// 21.
+			// Cree una función en la cual pida al usuario multiplicaciones o suma entre números del 1 al 20
+			// Por ejemplo, 3 x 15 = ?? o 7 + 2 = ??
+			// La lógica es la misma si acierta se le dice que bien y si falla se acaba el programa.
+			
+			function genMultOrSums() {
+				var factor1, factor2, resUsuario;
+				var resCorrecto;
+				var sMensaje = "";
+				
+				do {
+					factor1 = genAleatorio( 1, 10 );
+					operador = genAleatorio( 0, 1 );
+					factor2 = genAleatorio( 1, 10 );
+					
+					switch ( operador ) {
+						case 0: // multiplicacion.
+							sOperador = " x ";
+							resCorrecto = factor1 * factor2;
+						break;
+						case 1: // suma.
+							sOperador = " + ";
+							resCorrecto = factor1 + factor2;
+						break;
+					}
+					
+					resUsuario = prompt( sMensaje + factor1 + sOperador + factor2 + " = " );
+					if ( resUsuario == resCorrecto ) {
+						sMensaje = "Correcto. Sigue.\n";
+					}
+				} while ( resUsuario == resCorrecto );
+				
+				return false;
+			}
+			
+			function init() {
+				genMultOrSums();				
+				document.write( "Has fallado, el juego se acabo" );
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

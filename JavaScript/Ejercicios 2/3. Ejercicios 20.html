@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 20.</title>
+		<!-- Funciones comunes de los ejercicios -->
+		<script src="js/funciones.js"></script>
+		<script>
+			// 20.
+			// Cree una función en la cual pida al usuario una multiplicación entre numeros del 1 al 10.
+			// Por ejemplo, 4 x 5 = ??
+			// El usuario escribe en el prompt el resultado y la máquina te indica si es correcto o no.
+			// Dejará de preguntar si alguna de las multiplicaciones es incorrecta.
+			
+			function genMultiplicaciones() {
+				var factor1, factor2, resUsuario;
+				var resCorrecto;
+				var sMensaje = "";
+				
+				do {
+					factor1 = genAleatorio( 1, 10 );
+					factor2 = genAleatorio( 1, 10 );
+					resCorrecto = factor1 * factor2;
+					resUsuario = prompt( sMensaje + factor1 + " x " + factor2 + " = " );
+					if ( resUsuario == resCorrecto ) {
+						sMensaje = "Correcto. Sigue.\n";
+					}
+				} while ( resUsuario == resCorrecto );
+				
+				return false;
+			}
+			
+			function init() {
+				genMultiplicaciones() ;				
+				document.write( "Has fallado, el juego se acabo" );
+			}
+			
+			init();
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

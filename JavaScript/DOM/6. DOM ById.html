@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>6. DOM ById</title>
+		<meta charset="UTF-8">
+		
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px; }
+				
+			div {
+				border: 1px solid blue;
+				width: 50px;
+				height: 50px;
+				padding: 10px;
+				float: left;
+				text-align: center; }
+				
+			div#especial {
+				background-color: gray; }
+				
+			div.rojo {
+				border: 1px solid red; }
+				
+			p.resaltado {
+				font-weight: bold; }
+		</style>
+		<script>
+			
+			window.onload = function() {
+				var nodos;
+				var nodo;
+							
+				
+				nodos = document.getElementsByTagName( "body" );
+				
+				nodo = document.getElementById( "especial" );
+				
+				nodo.innerHTML = "Y soy tb especial";
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+	
+		<div></div>
+		<div></div>
+		<div class="rojo"></div>
+		<div></div>
+		<div></div>
+		<div id="especial"></div>
+		<div></div>
+		<div></div>
+		<div class="rojo"></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div class="rojo"></div>
+		<div class="rojo"></div>
+		<div id="especial"></div>
+		<div></div>
+		
+	</body>
+	
+</html>

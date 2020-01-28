@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>3. Ejercicios 9.1.</title>
+		
+		<script>
+			// 9.1.
+			// Cree una function en la cual averigüe cual es el elemento más pequeño y el más grande.
+			// La function recibe el array (este debe ser numérico) y a través de otro argumento si se quiere el más pequeño o el más grande
+			// Y retorna el número del elemento más pequeño o el más grande.
+
+			function getMax( arTmp ) {
+				var i;
+				var numMax; // Es la var. que contiene el número máximo.
+				numMax = arTmp[ 0 ];
+				 
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ] > numMax ) {
+						numMax = arTmp[ i ];
+					}
+				}
+				
+				return numMax;
+			}
+			
+			function getMin( arTmp ) {
+				var i;
+				var numMin; // Es la var. que contiene el número máximo.
+				numMin = arTmp[ 0 ];
+				 
+				for ( i = 0; i < arTmp.length; i++ ) {
+					if ( arTmp[ i ] < numMin ) {
+						numMin = arTmp[ i ];
+					}
+				}
+				
+				return numMin;
+			}
+			
+			function getMaxOrMin( arTmp, bMaxOrMin ) {
+				var numMaxOrMin;
+				
+				if ( bMaxOrMin ) {
+					numMaxOrMin = getMax( arTmp );
+				} else {
+					numMaxOrMin = getMin( arTmp );
+				}
+				
+				return numMaxOrMin;
+			}
+			
+			function init() {
+				var arNumbers = [ 4, 3, 5, 10, 1, 1, 2, 10, 100, 100, -44, 203, 76 ];
+				var numero;
+				
+				document.write( "El número más grande es: " + getMax( arNumbers ) );
+				document.write( "<br />" );
+				document.write( "El número más pequeño es: " + getMin( arNumbers ) );
+				document.write( "<br />" );
+				
+				numero = getMaxOrMin( arNumbers, true );
+				document.write( numero );
+				
+				
+			}
+			
+			init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
+
+				
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
